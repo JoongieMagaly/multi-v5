@@ -1,0 +1,100 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE HTML>
+<!-- The HTML 4.01 Transitional DOCTYPE declaration-->
+<!-- above set at the top of the file will set     -->
+<!-- the browser's rendering engine into           -->
+<!-- "Quirks Mode". Replacing this declaration     -->
+<!-- with a "Standards Mode" doctype is supported, -->
+<!-- but may lead to some differences in layout.   -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Multiservicios la #1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="estilo1.css" type="text/css" />
+</head>
+<body id="top">
+<div class="wrapper col1">
+  <div id="header">
+    <div class="fl_left">
+      <h1><a href="index.jsp">Ventas de Carnes y Embutidos</a></h1>
+      <p>La calidad, lo selecto e higiene usted lo encuentra en La #1</p>
+    </div>
+    <div class="fl_right"><img src="logo.jpg" alt="" /></div>
+    <br class="clear" />
+  </div>
+</div>
+<!-- ####################################################################################################### -->
+<div class="wrapper col2">
+  <div id="topbar">
+    <div id="topnav">
+      <ul>
+        <li><a href="/principal">Inicio</a></li>
+        <li><a href="#">Te ofrecemos</a>
+          <ul>
+            <li><a href="/carnes">Carne de cerdo</a></li>
+            <li><a href="/embutidos">Embutidos</a></li>
+          </ul>
+        </li>
+        <li class="active"><a href="/pedidos">Pedidos</a></li>
+        <li><a href="/deliverys">Delivery</a></li>
+        <li class="last"><a href="/contactanos">Contáctanos</a></li>
+        <li class="last"><a href="/trabajo">Trabaja con Nosotros</a></li>
+      </ul>
+    </div>
+    <div id="search">
+				<form action="/sesion?acceso=nuevo" method="post">
+					<input type="submit" value="Iniciar Sesion">
+				</form>
+			</div>
+    <br class="clear" />
+  </div>
+</div>
+<!-- ####################################################################################################### -->
+<div class="wrapper col4">
+  <div id="featured_intro">
+  <br><br>
+    <form action="#" method="get">
+      <div class="text">
+      		<h3><label for="nombre">Nombre/Empresa:</label></h3>
+      		<input type="text" name="nombre" tabindex="1"><br><br>
+      		<h3><label for="dni">DNI/RUC:</label></h3>
+      		<input type="text" name="dni" tabindex="2"><br><br>
+      		<h3><label for="direccion">Dirección:</label></h3>
+      		<input type="text" name="direccion" tabindex="3"><br><br>
+      		<h3><label for="telefono">Teléfono:</label></h3>
+      		<input type="number" name="telefono" tabindex="4"><br><br>
+      		<h3><label for="fechare">Fecha de recojo:</label></h3>
+      		<input type="text" name="fechare" tabindex="5"><br><br>
+    	</div>
+    	<div class="combobox">
+    		<h3><label for="tipo">Tipo de entrega:</label></h3>
+    		<select name="entrega">
+ 	 			<option value="personal">Personal</option>
+ 	 			<option value="delivery">Delivery</option>
+        	</select>
+    	</div>
+    	<br><br>
+    	<center><table style="width:100%" border="1">
+      	<tr>
+    		<th><h2>Producto</h2></th>		
+    		<th><h2>Cantidad</h2></th>
+    		<th><h2>Monto</h2></th>
+  		</tr>
+  		<tr>
+    		<td><br></td>
+    		<td><br></td>		
+    		<td><br></td>
+  		</tr>
+      </table></center><br><br>
+     
+      	<input name="reset" type="reset" id="reset" tabindex="5" value="Limpiar">
+     	&nbsp;
+      	<input name="submit" type="submit" value="Confirmar">
+    </form>
+    <br class="clear" />
+  </div>
+</div>
+</body>
+</html>

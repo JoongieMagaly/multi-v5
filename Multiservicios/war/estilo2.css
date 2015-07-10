@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+form, fieldset, legend{margin:0; padding:0; border:none;}
+legend{display:none;}
+input, textarea, select{font-size:12px; font-family:Georgia, "Times New Roman", Times, serif;}
+
+/* ----------------------------------------------Search Form------------------------------------- */
+
+#topbar input{display:block; float:left; width:155px; margin:0 5px 0 0; padding:5px; color:#B6B6B6; background-color:#151515; border:1px solid #888888; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px;}
+#topbar input#go{width:68px; height:26px; margin:0; padding:4px 0; text-transform:uppercase; color:#FFFFFF; background-color:#888888; cursor:pointer; font-weight:bold;}
+/* ---------------------------------------------------------------------------------------------- */
+
+#topnav{display:block; float:left; margin:0; padding:0; font-size:13px; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif;}
+#topnav ul, #topnav li{float:left; list-style:none; margin:0; padding:0;}
+/*estilos de la barra*/
+#topnav li a:link, #topnav li a:visited, #topnav li a:hover{display:block; margin:0; padding:15px 20px; color:black; background-color:#ADFF2F; border-left:2px solid #ADFF2F; font-size:16px; font-weight:bold;}
+#topnav ul ul li a:link, #topnav ul ul li a:visited{border:none;}
+#topnav li.last a{}
+#topnav li a:hover, #topnav ul li.active a{color:#FFFFFF; background-color:#888888 ; border-left:2px solid #888888 ;}
+#topnav li li a:link, #topnav li li a:visited{width:150px; float:none; margin:0; padding:7px 10px; font-size:16px; font-weight:bold; color:black; background-color:#ADFF2F;}
+#topnav li li a:hover{color:#FFFFFF; background-color:#888888 ;}
+#topnav li ul{z-index:9999; position:absolute; left:-999em; height:auto; width:170px; border-left:2px solid #ADFF2F; border-bottom:2px solid #ADFF2F;}
+#topnav li ul a{width:140px;}
+#topnav li ul ul{margin:-32px 0 0 0;}
+#topnav li:hover ul ul{left:-999em;}
+#topnav li:hover ul, #topnav li li:hover ul{left:auto;}
+#topnav li:hover{position:static;}
+#topnav li.last{margin:0;}
+

@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+	<servlet>
+		<servlet-name>Multiservicio</servlet-name>
+		<servlet-class>cerdo.unsa.MultiservicioServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Multiservicio</servlet-name>
+		<url-pattern>/multiservicio</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Registrar</servlet-name>
+		<servlet-class>cerdo.unsa.Registrar</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Registrar</servlet-name>
+		<url-pattern>/registrar</url-pattern>
+	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>Contactanos</servlet-name>
+		<servlet-class>cerdo.unsa.Contactanos</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Contactanos</servlet-name>
+		<url-pattern>/contactanos</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>VentanaSesion</servlet-name>
+		<servlet-class>cerdo.unsa.VentanaSesion</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>VentanaSesion</servlet-name>
+		<url-pattern>/ventanaSesion</url-pattern>
+	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>Upload</servlet-name>
+		<servlet-class>cerdo.unsa.Upload</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Upload</servlet-name>
+		<url-pattern>/upload</url-pattern>
+	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>Serve</servlet-name>
+		<servlet-class>cerdo.unsa.Serve</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Serve</servlet-name>
+		<url-pattern>/serve</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>Sesion</servlet-name>
+		<servlet-class>cerdo.unsa.Sesion</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Sesion</servlet-name>
+		<url-pattern>/sesion</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Currilulum</servlet-name>
+		<servlet-class>cerdo.unsa.Currilulum</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Currilulum</servlet-name>
+		<url-pattern>/currilulum</url-pattern>
+	</servlet-mapping>
+		
+	<servlet>
+		<servlet-name>GuardarCurric</servlet-name>
+		<servlet-class>cerdo.unsa.GuardarCurric</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GuardarCurric</servlet-name>
+		<url-pattern>/guardarCurric</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Postula</servlet-name>
+		<servlet-class>cerdo.unsa.Postula</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Postula</servlet-name>
+		<url-pattern>/postula</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Pedidos</servlet-name>
+		<servlet-class>cerdo.unsa.Pedidos</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Pedidos</servlet-name>
+		<url-pattern>/pedidos</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Deliverys</servlet-name>
+		<servlet-class>cerdo.unsa.Deliverys</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Deliverys</servlet-name>
+		<url-pattern>/deliverys</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Trabajo</servlet-name>
+		<servlet-class>cerdo.unsa.Trabajo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Trabajo</servlet-name>
+		<url-pattern>/trabajo</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Comentario</servlet-name>
+		<servlet-class>cerdo.unsa.Comentario</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Comentario</servlet-name>
+		<url-pattern>/comentario</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Principal</servlet-name>
+		<servlet-class>cerdo.unsa.Principal</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Principal</servlet-name>
+		<url-pattern>/principal</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>PermisoD</servlet-name>
+		<servlet-class>cerdo.unsa.PermisoD</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PermisoD</servlet-name>
+		<url-pattern>/permisod</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>PermisoE</servlet-name>
+		<servlet-class>cerdo.unsa.PermisoE</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PermisoE</servlet-name>
+		<url-pattern>/permisoe</url-pattern>
+	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>Cerrar</servlet-name>
+		<servlet-class>cerdo.unsa.Cerrar</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Cerrar</servlet-name>
+		<url-pattern>/cerrar</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+		<servlet>
+		<servlet-name>Save</servlet-name>
+		<servlet-class>cerdo.unsa.Save</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Save</servlet-name>
+		<url-pattern>/save</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Crear</servlet-name>
+		<servlet-class>cerdo.unsa.Crear</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Crear</servlet-name>
+		<url-pattern>/crear</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>Borrar</servlet-name>
+		<servlet-class>cerdo.unsa.Borrar</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Borrar</servlet-name>
+		<url-pattern>/Borrar</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Carnes</servlet-name>
+		<servlet-class>cerdo.unsa.Carnes</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Carnes</servlet-name>
+		<url-pattern>/carnes</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>Embutidos</servlet-name>
+		<servlet-class>cerdo.unsa.Embutidos</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Embutidos</servlet-name>
+		<url-pattern>/embutidos</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>Iniciar</servlet-name>
+		<servlet-class>cerdo.unsa.Iniciar</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Iniciar</servlet-name>
+		<url-pattern>/iniciar</url-pattern>
+	</servlet-mapping>
+	
+	
+		<servlet>
+		<servlet-name>Save</servlet-name>
+		<servlet-class>cerdo.unsa.Save</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Save</servlet-name>
+		<url-pattern>/save</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>Admin</servlet-name>
+		<servlet-class>cerdo.unsa.Admin</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Admin</servlet-name>
+		<url-pattern>/admin</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Codigo</servlet-name>
+		<servlet-class>cerdo.unsa.Codigo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Codigo</servlet-name>
+		<url-pattern>/codigo</url-pattern>
+	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>Comentarios</servlet-name>
+		<servlet-class>cerdo.unsa.Comentarios</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Comentarios</servlet-name>
+		<url-pattern>/comentarios</url-pattern>
+	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>Comentario</servlet-name>
+		<servlet-class>cerdo.unsa.Comentario</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Comentario</servlet-name>
+		<url-pattern>/comentario</url-pattern>
+	</servlet-mapping>
+	
+	
+	<welcome-file-list>
+		<welcome-file>principal</welcome-file>
+	</welcome-file-list>
+</web-app>
