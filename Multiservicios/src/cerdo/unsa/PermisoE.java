@@ -24,16 +24,16 @@ public class PermisoE extends HttpServlet{
 		HttpSession misesion= req.getSession();
 		
 	if(misesion.getAttribute("acceso").equals("permitido")){
-	try {
-			List<Empleado> personas = PersonaService.ListaEmpleados();
+		try {
+			List<Pedido> personas = PersonaService.ListaPedidos();
 			req.setAttribute("personas", personas);
 			
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/entregapedido.jsp");
 			rd.forward(req, resp);
 	
-	}finally{ 
+		}finally{ 
 		//out.close();
-	}	
+		}	
 	}
+}}
 	
-	}}

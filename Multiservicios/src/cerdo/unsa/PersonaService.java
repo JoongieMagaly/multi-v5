@@ -25,7 +25,15 @@ public class PersonaService {
 	
 	//Para consultar una persona por color
 	
-	
+	//Para consultar los pedidos
+		@SuppressWarnings("unchecked")
+		public static List<Pedido> ListaPedidos(){
+		 final PersistenceManager pm = PMF.get().getPersistenceManager();
+		 final Query query = pm.newQuery(Pedido.class);
+		 query.setRange(0, FETCH_MAX_RESULTS);
+		 return (List<Pedido>) query.execute();
+		}
+		
 	//Para consulta todas las personas
 	@SuppressWarnings("unchecked")
 	public static List<Empleado> ListaEmpleados(){
