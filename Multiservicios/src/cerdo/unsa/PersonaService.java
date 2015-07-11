@@ -33,6 +33,17 @@ public class PersonaService {
 		 query.setRange(0, FETCH_MAX_RESULTS);
 		 return (List<Pedido>) query.execute();
 		}
+	
+		@SuppressWarnings("unchecked")
+		public static List<Empleado> personasXCodigo(String nombre){
+		 final PersistenceManager pm = PMF.get().getPersistenceManager();
+		 String query = " select from " +
+		Empleado.class.getName()+
+		 " where codicoe == '" +
+		nombre + "'";
+		 List<Empleado> personas = (List<Empleado>)pm.newQuery(query).execute();
+		 return(personas);
+		}	
 		
 	//Para consulta todas las personas
 	@SuppressWarnings("unchecked")

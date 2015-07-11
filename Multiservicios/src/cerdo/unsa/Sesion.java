@@ -46,10 +46,22 @@ public class Sesion extends HttpServlet{
 			
 		}	
 		else if(PersonaService.BuscarEmpleado(req.getParameter("usuario"),req.getParameter("contraseña"))==true){
-			misesion.setAttribute("acceso","permitido");
+			String codigo=req.getParameter("usuario");
+			List<Empleado> p = PersonaService.personasXCodigo(codigo);
+			String acces="";
+			for(Empleado x : p){
+				acces=x.getAcceso();
+			}
+			if(acces.equals("permitido")){
+				misesion.setAttribute("acceso","permitido");
+				RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/empleado.jsp");
+				rd.forward(req, resp);		
+			}
+			else{
+				RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/iniciar.jsp");
+				rd.forward(req, resp);	
+			}
 			
-			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/empleado.jsp");
-			rd.forward(req, resp);
 			
 			
 		}

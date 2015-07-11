@@ -117,9 +117,9 @@ function sumar2(d, c){
       		<input type="text" name="nombre" tabindex="1"><br><br>
       		<h3><label for="dni">DNI/RUC:</label></h3>
       		<input type="number" name="ide" tabindex="2"><br><br>
-      		<h3><label for="direccion">DirecciÃ³n:</label></h3>
+      		<h3><label for="direccion">Direccion:</label></h3>
       		<input type="text" name="direccion" tabindex="3"><br><br>
-      		<h3><label for="telefono">TelÃ©fono:</label></h3>
+      		<h3><label for="telefono">Telefono:</label></h3>
       		<input type="number" name="telefono" tabindex="4"><br><br>
       		<h3><label for="fechare">Fecha de recojo:(aaaa-mm-dd)</label></h3>
       		<input type="date" name="fechare" tabindex="5"><br><br>

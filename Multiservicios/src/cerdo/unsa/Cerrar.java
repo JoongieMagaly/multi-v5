@@ -12,6 +12,6 @@ public class Cerrar extends HttpServlet {
 		HttpSession misesion= req.getSession();
 		
 		misesion.invalidate(); //Cierra la sesion
-resp.sendRedirect("/index.jsp");
+resp.sendRedirect("/principal");
 	}
 }

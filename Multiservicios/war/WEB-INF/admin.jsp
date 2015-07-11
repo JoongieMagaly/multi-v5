@@ -61,26 +61,36 @@ Eliminar por correo codigo<br>
 <br>
 <input type="submit" id="bot" value="Eliminar">
 </form>
-
 <table BORDER id="tab">
 	<tr>
-		<th>CODIGO</th> <th>NOMBRE</th> <th>APELLIDO</th><th>CONTRASEÑA</th>
+		<th>CODIGO</th> <th>NOMBRE</th> <th>APELLIDO</th><th>CONTRASEÑA</th><th>ACCESO</th>
 	</tr>
 <%
 for( Empleado persona : (List<Empleado>)request.getAttribute("personas") ) {
 	
 %>
-<tr>
-		<td><%= persona.getCodicoe() %></td>
-		<td><%= persona.getName() %></td>
+
+<form action="/actualizar" method="post">
+    <tr>
+		<td headers="c"><input name="c" type="text" value="<%=persona.getCodicoe()%>"></td>
+		<td><%= persona.getName()%></td>
 		<td><%= persona.getLastname() %></td>
 		<td><%= persona.getContraseña() %></td>
-</tr>
+		<td><%= persona.getAcceso()%></td>
+		<td><select name="permiso">
+				<option value="permitido">Permitido</option>
+				<option value="no permitido">No permitido</option>
+		    </select>
+		</td>
+	    <td>
+		<input type="submit" value="Actualizar">
+		</td>   
+    </tr>
+</form>
 <%
 }
 %>
 </table>
-
 
 
 </body>

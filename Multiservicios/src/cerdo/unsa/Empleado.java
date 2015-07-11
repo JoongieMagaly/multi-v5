@@ -22,14 +22,18 @@ public class Empleado {
 
 	@Persistent
 	private String contraseña;
+	
+	@Persistent
+	private String acceso;
 
 
-	public Empleado(String name, String lastname, String codicoe,String contraseña) {
+	public Empleado(String name, String lastname, String codicoe,String contraseña, String acceso) {
 		
 		this.name = name;
 		this.lastname = lastname;
 		this.codicoe = codicoe;
 		this.contraseña = contraseña;	
+		this.acceso = acceso;
 	}
 
 	public String getName() {
@@ -62,4 +66,15 @@ public class Empleado {
 	public void setContraseña(String contraseña) {
 		this.contraseña = contraseña;
 	}
+
+	public String getAcceso() {
+		return acceso;
+	}
+
+	public void setAcceso(String acceso) {
+		this.acceso = acceso;
+	}
+
+	
+	
 }

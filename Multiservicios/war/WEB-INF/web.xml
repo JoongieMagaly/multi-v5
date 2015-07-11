@@ -22,6 +22,45 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<url-pattern>/registrar</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>Actualizar</servlet-name>
+		<servlet-class>cerdo.unsa.Actualizar</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Actualizar</servlet-name>
+		<url-pattern>/actualizar</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ConfirmarPedido</servlet-name>
+		<servlet-class>cerdo.unsa.ConfirmarPedido</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ConfirmarPedido</servlet-name>
+		<url-pattern>/confirmarPedido</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Borrarcu</servlet-name>
+		<servlet-class>cerdo.unsa.Borrarcu</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Borrarcu</servlet-name>
+		<url-pattern>/borrarcu</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Borrarc</servlet-name>
+		<servlet-class>cerdo.unsa.Borrarc</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Borrarc</servlet-name>
+		<url-pattern>/borrarc</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+	
 		<servlet>
 		<servlet-name>Contactanos</servlet-name>
 		<servlet-class>cerdo.unsa.Contactanos</servlet-class>
