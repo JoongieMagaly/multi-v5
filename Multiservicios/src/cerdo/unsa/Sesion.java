@@ -58,11 +58,10 @@ public class Sesion extends HttpServlet{
 				rd.forward(req, resp);		
 			}
 			else{
-				RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/iniciar.jsp");
+				misesion.setAttribute("acceso","denegado");
+				RequestDispatcher rd = getServletContext().getRequestDispatcher("/denegado");
 				rd.forward(req, resp);	
 			}
-			
-			
 			
 		}
 		else if( !req.getParameter("usuario").equals("adminxxx") || req.getParameter("contraseña").equals("lokitaxti")){

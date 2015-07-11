@@ -30,7 +30,7 @@ public class Crear extends HttpServlet{
 		if( req.getParameter("acceso").equals("nuevo")){
 			registro.setAttribute("acceso","nuevo");
 			// 10 segundos
-			resp.sendRedirect("/crear.jsp");
+			resp.sendRedirect("/crear");
 		}
 		
 	}
@@ -44,24 +44,24 @@ public class Crear extends HttpServlet{
 			String nombre=(String)registro.getAttribute("nombre");
 			String apellido=(String)registro.getAttribute("apellido");
 			String codigo=(String)registro.getAttribute("codigo");
-			Empleado nuevo=new Empleado(nombre,apellido,codigo,contraseña, "permitido");
+			Empleado nuevo=new Empleado(nombre,apellido,codigo,contraseña,"permitido");
 			PersistenceManager pm = PMF.get().getPersistenceManager();
 			try{
 				pm.makePersistent(nuevo);
 				
 			}catch(Exception u){
 				System.out.println(u);
-				resp.getWriter().println("Ocurrio un error, <a href='index.jsp'>vuelva a intentarlo</a>");
+				resp.getWriter().println("Ocurrio un error, <a href='/principal'>vuelva a intentarlo</a>");
 			}finally{
 				pm.close();
 			}
 			
-			resp.sendRedirect("/sesion.jsp");
+			resp.sendRedirect("/ventanaSesion");
 		}	
 		else {
 			registro.setAttribute("acceso","denegado");
 			registro.setMaxInactiveInterval(30);// 10 segundos
-			resp.sendRedirect("/registro.jsp");
+			resp.sendRedirect("/registrar");
 		}		
 		
 	}
@@ -71,9 +71,5 @@ public class Crear extends HttpServlet{
 	
 	
 	}}
-
-
-
-
 
 

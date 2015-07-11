@@ -25,8 +25,8 @@ System.out.println(per);
 System.out.println(c);
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		Query q = pm.newQuery(Empleado.class);
-		q.setFilter("acceso == accesoParam");
-		q.declareParameters("String accesoParam");
+		q.setFilter("codicoe== codicoeParam");
+		q.declareParameters("String codicoeParam");
 		try{
 			List<Empleado> personas = (List<Empleado>) q.execute(c);
 			for(Empleado p: personas){

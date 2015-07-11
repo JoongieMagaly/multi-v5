@@ -37,7 +37,7 @@
         </li>
         <li><a href="/pedidos">Pedidos</a></li>
         <li><a href="/deliverys">Delivery</a></li>
-        <li class="last"><a href="/contactanos">Contáctanos</a></li>
+        <li class="last"><a href="/contactanos">ContÃ¡ctanos</a></li>
         <li class="last"><a href="/trabajo">Trabaja con Nosotros</a></li>
           <li class="last"><a href="/cerrar">cerrar Sesion</a><br></li>
           
@@ -63,7 +63,7 @@ Eliminar por correo codigo<br>
 </form>
 <table BORDER id="tab">
 	<tr>
-		<th>CODIGO</th> <th>NOMBRE</th> <th>APELLIDO</th><th>CONTRASEÑA</th><th>ACCESO</th>
+		<th>CODIGO</th> <th>NOMBRE</th> <th>APELLIDO</th><th>CONTRASEÃ‘A</th><th>ACCESO</th>
 	</tr>
 <%
 for( Empleado persona : (List<Empleado>)request.getAttribute("personas") ) {
@@ -72,7 +72,7 @@ for( Empleado persona : (List<Empleado>)request.getAttribute("personas") ) {
 
 <form action="/actualizar" method="post">
     <tr>
-		<td headers="c"><input name="c" type="text" value="<%=persona.getCodicoe()%>"></td>
+		<td><input name="c" type="text" value="<%=persona.getCodicoe()%>"></td>
 		<td><%= persona.getName()%></td>
 		<td><%= persona.getLastname() %></td>
 		<td><%= persona.getContraseña() %></td>
@@ -95,3 +95,4 @@ for( Empleado persona : (List<Empleado>)request.getAttribute("personas") ) {
 
 </body>
 </html>
+
