@@ -40,6 +40,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<url-pattern>/confirmarPedido</url-pattern>
 	</servlet-mapping>
 	
+	
 	<servlet>
 		<servlet-name>Denegado</servlet-name>
 		<servlet-class>cerdo.unsa.Denegado</servlet-class>
@@ -47,7 +48,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<servlet-mapping>
 		<servlet-name>Denegado</servlet-name>
 		<url-pattern>/denegado</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping>	
 	
 	<servlet>
 		<servlet-name>Borrarcu</servlet-name>

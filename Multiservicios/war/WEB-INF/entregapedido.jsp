@@ -68,17 +68,27 @@
 
 			<table BORDER id="tab">
 				<tr>
+				    <th>CODIGO</th>
 					<th>FECHA DE EMISION</th>
+					<th>NOMBRE</th>
+					<th>TELEFONO</th>
 					<th>PRODUCTO</th>
 					<th>CANTIDAD</th>
 					<th>MONTO</th>
-					<th>FECHA DE RECOJO</th>
+					<th>FORMA DE ENTREGA</th>
+					<th>DESTINO</th>
+					<th>FECHA</th>
+					<th>HORA</th>
+					
 				</tr>
 				<%
 					for (Pedido pedido: (List<Pedido>) request.getAttribute("personas")) {
 				%>
 				<tr>
+				    <td><%=pedido.getKey()%></td>
 					<td><%=pedido.getFechaEmision()%></td>
+					<td><%=pedido.getNombre()%></td>
+					<td><%=pedido.getTelefono()%></td>
 					<td>
 					<%if (pedido.getCarnes()!=null){
 					     for (Carne x: pedido.getCarnes()){%>
@@ -111,7 +121,11 @@
 					
 				         <p><%=pedido.getPrecioEmbutidos()%></p>
 					</td>
+					<td><%=pedido.getFormEn()%></td>
+					<td><%=pedido.getDestino()%></td>
 					<td><%=pedido.getFechaRecojo()%></td>
+					<td><%=pedido.getHora()%></td>
+					<td><input type="submit" name="entregado" value="Entregado" formaction="/misEntregas"></td>
 				</tr>
 				<%
 					}

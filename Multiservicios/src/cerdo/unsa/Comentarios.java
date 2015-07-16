@@ -2,7 +2,6 @@ package cerdo.unsa;
 
 import java.io.IOException;
 import java.util.List;
-
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 import javax.servlet.RequestDispatcher;

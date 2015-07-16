@@ -4,6 +4,8 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 import com.google.appengine.api.datastore.Key;
+import java.util.*;
+
 @SuppressWarnings("unchecked")
 @PersistenceCapable
 public class Empleado {
@@ -22,9 +24,13 @@ public class Empleado {
 
 	@Persistent
 	private String contraseña;
+	
 	@Persistent
 	private String acceso;
-
+	
+	@Persistent
+	private ArrayList<Pedido> misentregas;
+	
 	public Empleado(String name, String lastname, String codicoe,String contraseña,String acceso) {
 		
 		this.name = name;

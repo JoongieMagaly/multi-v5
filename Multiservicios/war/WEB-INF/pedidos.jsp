@@ -70,6 +70,21 @@ function sumar2(d, c){
 
 </script>
 
+<script>
+function personal(){
+	
+	  document.getElementById("cambio").innerHTML="<input type='hidden' name='entre' id='entre' value='Entrega Personal'><input type='hidden' name='destino' tabindex='5'><br><h3><label for='fechare'>Fecha de recojo:(aaaa-mm-dd)</label></h3><input type='date' name='fechare' tabindex='5'>"
+	  +"<br><br><h3><label for='hora'>Hora de recojo:</label></h3><input type='number' name='hora' tabindex='5'>";
+}
+</script>
+<script>
+function delivery(){
+	  document.getElementById("cambio").innerHTML="<input type='hidden' name='entre' id='entre' value='Delivery'><h3><label>Destino:</label></h3><input type='text' name='destino' tabindex='5'><br><br><h3><label for='fechare'>Fecha de Entrega:(aaaa-mm-dd)</label></h3><input type='date' name='fechare' tabindex='5'>"
+		  +"<br><br><h3><label for='hora'>Hora de Entrega:</label></h3><input type='number' name='hora' tabindex='5'><br><p>*El costo del delivery sera cobrado deacuerdo al lugar de destino en la entrega</p>";
+	  
+}
+</script>
+
 </head>
 <body id="top">
 <div class="wrapper col1">
@@ -121,9 +136,12 @@ function sumar2(d, c){
       		<input type="text" name="direccion" tabindex="3"><br><br>
       		<h3><label for="telefono">Telefono:</label></h3>
       		<input type="number" name="telefono" tabindex="4"><br><br>
-      		<h3><label for="fechare">Fecha de recojo:(aaaa-mm-dd)</label></h3>
-      		<input type="date" name="fechare" tabindex="5"><br><br>
-      		<h3><label for="entrega">Tipo de entrega: Personal</label></h3><br>
+      		<h3><label for="entrega">Tipo de entrega: (haga click sobre el tipo de pedido que desea)</label></h3><br>
+      		
+      		<input type="button" value="Entrega Personal" onclick="personal()">
+      		<input type="button" value="Delivery" onclick="delivery()">
+      		<div id="cambio">
+      		</div>
     	</div>
     	<br><br>
     	

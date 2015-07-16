@@ -12,12 +12,14 @@ import javax.servlet.http.*;
 @SuppressWarnings("serial")
 public class ConfirmarPedido extends HttpServlet{
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)throws IOException {
-		
 		String nomb = req.getParameter("nombre");
 		String ide = req.getParameter("ide");
 		String direccion = req.getParameter("direccion");
 		String telefono = req.getParameter("telefono");
 		String fecha = req.getParameter("fechare");
+		String formEn = req.getParameter("entre");
+		String hora = req.getParameter("hora");
+		String destino = req.getParameter("destino");
 		
 		long id = Long.parseLong(ide);
 		long telf = Long.parseLong(telefono);
@@ -207,7 +209,7 @@ public class ConfirmarPedido extends HttpServlet{
 			String precio2 = req.getParameter("total2");
 			double price2 = Double.parseDouble(precio2);
 			
-			Pedido pedido = new Pedido(nombcarne, id, direccion, telf, fecha, carnes, embutidos, price1, price2);
+			Pedido pedido = new Pedido (nomb, id, direccion, telf, fecha, carnes, embutidos, price1, price2,formEn,hora,destino);
 			pmf.makePersistent(pedido);
 			System.out.println(pedido);
 			

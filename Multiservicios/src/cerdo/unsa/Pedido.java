@@ -45,19 +45,33 @@ public class Pedido {
 	
 	@Persistent
 	private double precioEmbutidos;
+	
+
+	@Persistent
+	private String formEn;
+	
+	@Persistent
+	private String hora;
+	
+	@Persistent
+	private String destino;
 
 
-	public Pedido(String name, long ide, String address, long phone, String date) {
+	public Pedido(String name, long ide, String address, long phone, String date,String formEn,String hora, String destino) {
+	
 		nombre = name;
 		identificacion = ide;
 		direccion = address;
 		telefono = phone;
 		fechaEmision = fechaEm();
 		fechaRecojo = date;
+		this.formEn = formEn;
+		this.hora= hora;
+		this.destino=destino;
+		
 	}
-	
-	public Pedido(String name, long ide, String address, long phone, String date, ArrayList<Carne> c, ArrayList<Embutido> emb, double pc, double pe){
-		this(name, ide, address, phone, date);
+	public Pedido(String name, long ide, String address, long phone, String date, ArrayList<Carne> c, ArrayList<Embutido> emb, double pc, double pe, String formEn, String hora, String destino){
+		this( name, ide, address, phone, date, formEn, hora, destino);
 		if (c != null && pc != 0.0){
 			carnes = c;
 			precioCarnes = pc;
@@ -67,7 +81,7 @@ public class Pedido {
 			precioEmbutidos = pe;
 		}
 	}
-
+	
 	public String getFechaEmision() {
 		return fechaEmision;
 	}
@@ -159,6 +173,31 @@ public class Pedido {
 	    int dia = fecha.get(Calendar.DAY_OF_MONTH);
 	    String fechaEmision = dia+"/"+(mes+1)+"/"+año;
 	    return fechaEmision;
+	}
+	
+
+	public String getFormEn() {
+		return formEn;
+	}
+
+	public void setFormEn(String formEn) {
+		this.formEn = formEn;
+	}
+
+	public String getHora() {
+		return hora;
+	}
+
+	public void setHora(String hora) {
+		this.hora = hora;
+	}
+
+	public String getDestino() {
+		return destino;
+	}
+
+	public void setDestino(String destino) {
+		this.destino = destino;
 	}
 
 	@Override
