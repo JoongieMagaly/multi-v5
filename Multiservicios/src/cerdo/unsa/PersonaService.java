@@ -45,6 +45,19 @@ public class PersonaService {
 		 return(personas);
 		}	
 		
+		@SuppressWarnings("unchecked")
+		public static List<Pedido> productoXCodigo(String nombre){
+		 final PersistenceManager pm = PMF.get().getPersistenceManager();
+		 String query = " select from " +
+		Pedido.class.getName()+
+		 " where key == '" +
+		nombre + "'";
+		 List<Pedido> personas = (List<Pedido>)pm.newQuery(query).execute();
+		 return(personas);
+		}
+		
+		
+		
 	//Para consulta todas las personas
 	@SuppressWarnings("unchecked")
 	public static List<Empleado> ListaEmpleados(){

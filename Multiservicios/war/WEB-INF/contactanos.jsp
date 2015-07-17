@@ -70,63 +70,34 @@
 </div>
 <!-- ####################################################################################################### -->
 <div class="wrapper col5">
-  <div id="footer">
-    <div class="footbox twitter">
-      <h2>Facebook</h2>
-      <ul>
-        <li><a href="#"><img src="facebookSiguenos.jpg" alt="" style="width:200px"/></a></li>
-      </ul>
-    </div>
-    <div class="footbox flickr">
-      <h2>Conócenos...</h2>
-      <ul>
-        <li><a href="#"><img  src="#" alt="" /></a></li>
-        <li><a href="#"><img  src="#" alt="" /></a></li>
-        <li><a href="#"><img  src="#" alt="" /></a></li>
-        <li><a href="#"><img  src="#" alt="" /></a></li>
-        <li><a href="#"><img  src="#" alt="" /></a></li>
-        <li><a href="#"><img  src="#" alt="" /></a></li>
-      </ul>
-      <br class="clear" />
-    </div>
-    <div class="footbox posts">
-      <h2>Comenta...</h2>
-      <div id="respond">
-        <form action="#" method="post">
+<h1>Sugerencias y Reclamos</h1>
+<div class="center">
+
+ <form action="/reclamo" method="post">
           <p>
-            <label for="name">Name:</label>
-            <input type="text" name="name" id="name" value="" size="22" />
+            <label for="name">Nombre:</label>
+            <input type="text" name="name" value="" size="22" />
           </p><br>
           <p>
             <label for="email">Email:</label>
-            <input type="text" name="email" id="email" value="" size="22" />
+            <input type="email" name="email"value="" size="22" />
           </p><br>
           <p>
-            <textarea name="comment" id="comment" cols="32" rows="7"></textarea>
+          <label for="asunto">Asunto:</label>
+          <input type="text" name="asunto"value="" size="35" />
+          </p>
+          <p>
+            <textarea name="reclamo" cols="150" rows="10"></textarea>
           </p><br>
+          <p>*Nos pondremos en contacto con usted a traves de su email lo mas antes posible</p>
+          
           <p>
             <input name="submit" type="submit" id="submit" value="Enviar" />
             &nbsp;
             <input name="reset" type="reset" id="reset" tabindex="5" value="Limpiar" />
           </p>
         </form>
-      </div>
-    </div>
-    <div class="footbox banners last">
-      <h2>Comentarios</h2>
-      <div id="comments">
-        <ul class="commentlist">
-          <li class="comment_odd">
-            <div class="author"><span class="name"><a href="#">Integrantes</a></span> <span class="wrote">escribió:</span></div>
-            <div class="submitdate"><a href="#">Mayo 28, 2015 at 12:54 pm</a></div>
-            <p>Primera prueba, aún no guarda comentarios.</p>
-          </li>
-        </ul>
-      </div>
-      
-    </div>
-    <br class="clear" />
-  </div>
+        </div>
 </div>
 <!-- ####################################################################################################### -->
 </body>

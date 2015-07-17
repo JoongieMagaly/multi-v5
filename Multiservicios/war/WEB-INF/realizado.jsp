@@ -45,7 +45,7 @@
           <a href="/permisoe">Ver Pedidos</a><br>
         <a href="/permisod">Ver Delivery</a><br>
         <a href="/guardarCurric">Ver Curriculum</a><br>
- 
+        <a href="/Cambiar">Cambiar mi Contraseña</a><br>
         
          
         
@@ -54,45 +54,38 @@
     <br class="clear">
   </div>
 </div>
-
-
-<form action="/Borrar" method="get">
-Eliminar por correo codigo<br>
-<input type=text name=eliminar>
-<br>
-<input type="submit" id="bot" value="Eliminar">
-</form>
-<table BORDER id="tab">
-	<tr>
-		<th>CODIGO</th> <th>NOMBRE</th> <th>APELLIDO</th><th>CONTRASEÃ‘A</th><th>ACCESO</th>
-	</tr>
 <%
-for( Empleado persona : (List<Empleado>)request.getAttribute("personas") ) {
-	
+  HttpSession misesion= request.getSession(); 
 %>
-
-<form action="/actualizar" method="post">
-    <tr>
-		<td><input name="c" type="text" value="<%=persona.getCodicoe()%>"></td>
-		<td><%= persona.getName()%></td>
-		<td><%= persona.getLastname() %></td>
-		<td><%= persona.getContraseña() %></td>
-		<td><%= persona.getAcceso()%></td>
-		<td><select name="permiso">
-				<option value="permitido">Permitido</option>
-				<option value="no permitido">No permitido</option>
-		    </select>
-		</td>
-	    <td>
-		<input type="submit" value="Actualizar">
-		</td>   
-    </tr>
-</form>
 <%
-}
+ if(misesion.getAttribute("cambio").equals("exito")){
+	 
 %>
-</table>
+<h1><%= misesion.getAttribute("nombre") %>, Su contraseña fue cambiada exitosamente :)</h1>
 
+
+<%} %>
+<%
+ if(misesion.getAttribute("cambio").equals("fallido")){
+	 
+%>
+<h1><%= misesion.getAttribute("nombre") %>, Su contraseña nueva no puede ser igual a la anterior</h1>
+<a href="/cambiar">VUELVE A INTENTARLO</a>
+<%} %>
+<%
+ if(misesion.getAttribute("cambio").equals("nocoincide")){
+	 
+%>
+<h1><%= misesion.getAttribute("nombre") %>, La contraseña ingresada no es correcta, intentalo nuevamente :)</h1>
+<a href="/cambiar">VUELVE A INTENTARLO</a>
+<%} %>
+<%
+ if(misesion.getAttribute("cambio").equals("nuevas")){
+	 
+%>
+<h1><%= misesion.getAttribute("nombre") %>, El campo de nueva contraseña y confirmar contraseña deben ser iguales :)</h1>
+<a href="/cambiar">VUELVE A INTENTARLO</a>
+<%} %>
 
 </body>
 </html>

@@ -10,6 +10,12 @@
 <title>Multiservicios la #1</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" href="estilo1.css" type="text/css" />
+<script>
+function deshabilitar(){
+document.entregas.entrega.disabled0true;
+}
+</script>
+
 </head>
 <body id="top">
 	<div class="wrapper col1">
@@ -84,8 +90,11 @@
 				<%
 					for (Pedido pedido: (List<Pedido>) request.getAttribute("personas")) {
 				%>
+				
 				<tr>
-				    <td><%=pedido.getKey()%></td>
+				<form action="/mandar" method="get" name="entregas" id="entregas">
+				
+				    <td><input type="text" name="mandar" value="<%=pedido.getKey()%>"></td>
 					<td><%=pedido.getFechaEmision()%></td>
 					<td><%=pedido.getNombre()%></td>
 					<td><%=pedido.getTelefono()%></td>
@@ -125,8 +134,10 @@
 					<td><%=pedido.getDestino()%></td>
 					<td><%=pedido.getFechaRecojo()%></td>
 					<td><%=pedido.getHora()%></td>
-					<td><input type="submit" name="entregado" value="Entregado" formaction="/misEntregas"></td>
+					<td><input type="submit" name="entregado" id ="entregado" value="Entregado"  onclick="deshabilitar();"></td>
+				</form>
 				</tr>
+				
 				<%
 					}
 				%>

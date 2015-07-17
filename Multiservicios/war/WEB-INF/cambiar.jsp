@@ -45,7 +45,7 @@
           <a href="/permisoe">Ver Pedidos</a><br>
         <a href="/permisod">Ver Delivery</a><br>
         <a href="/guardarCurric">Ver Curriculum</a><br>
- 
+        <a href="/cambiar">Cambiar mi Contraseña</a><br>
         
          
         
@@ -55,45 +55,22 @@
   </div>
 </div>
 
+<h3>Cambia tu Contraseña</h3>
 
-<form action="/Borrar" method="get">
-Eliminar por correo codigo<br>
-<input type=text name=eliminar>
-<br>
-<input type="submit" id="bot" value="Eliminar">
-</form>
-<table BORDER id="tab">
-	<tr>
-		<th>CODIGO</th> <th>NOMBRE</th> <th>APELLIDO</th><th>CONTRASEÃ‘A</th><th>ACCESO</th>
-	</tr>
-<%
-for( Empleado persona : (List<Empleado>)request.getAttribute("personas") ) {
-	
-%>
 
-<form action="/actualizar" method="post">
-    <tr>
-		<td><input name="c" type="text" value="<%=persona.getCodicoe()%>"></td>
-		<td><%= persona.getName()%></td>
-		<td><%= persona.getLastname() %></td>
-		<td><%= persona.getContraseña() %></td>
-		<td><%= persona.getAcceso()%></td>
-		<td><select name="permiso">
-				<option value="permitido">Permitido</option>
-				<option value="no permitido">No permitido</option>
-		    </select>
-		</td>
-	    <td>
-		<input type="submit" value="Actualizar">
-		</td>   
-    </tr>
+
+<form action="/contrasena" method="post">
+   <label>Ingresa Contraseña Actual:</label><br>
+   <input type="password" name="contraseñaa"><br>
+   <label>Ingresa Contraseña Nueva:</label><br>
+   <input type="password" name="contraseñan"><br>
+   <label>Confirmar Contraseña:</label><br>
+   <input type="password" name="contraseñac"><br><br>
+   <input type="submit" id="contra" value="Aceptar">
 </form>
-<%
-}
-%>
-</table>
+
+
 
 
 </body>
 </html>
-

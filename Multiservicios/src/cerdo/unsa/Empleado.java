@@ -40,6 +40,14 @@ public class Empleado {
 		this.acceso = acceso;	
 	}
 
+	public ArrayList<Pedido> getMisentregas() {
+		return misentregas;
+	}
+
+	public void setMisentregas(Pedido p) {
+		misentregas.add(p);
+	}
+
 	public String getName() {
 		return name;
 	}

@@ -1,6 +1,7 @@
 package cerdo.unsa;
 import java.io.IOException;
 
+
 import java.io.PrintWriter;
 //import java.io.PrintWriter;
 import java.util.List;
@@ -49,11 +50,16 @@ public class Sesion extends HttpServlet{
 			String codigo=req.getParameter("usuario");
 			List<Empleado> p = PersonaService.personasXCodigo(codigo);
 			String acces="";
+			String nombre="";
 			for(Empleado x : p){
 				acces=x.getAcceso();
+				nombre=x.getName();
 			}
 			if(acces.equals("permitido")){
 				misesion.setAttribute("acceso","permitido");
+				misesion.setAttribute("codigo", req.getParameter("usuario"));
+				misesion.setAttribute("nombre",nombre);
+				misesion.setAttribute("contraseña",req.getParameter("contraseña"));
 				RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/empleado.jsp");
 				rd.forward(req, resp);		
 			}
@@ -64,12 +70,21 @@ public class Sesion extends HttpServlet{
 			}
 			
 		}
-		else if( !req.getParameter("usuario").equals("adminxxx") || req.getParameter("contraseña").equals("lokitaxti")){
+		else if( !req.getParameter("usuario").equals("adminxxx") || !req.getParameter("contraseña").equals("lokitaxti")){
+			System.out.println("carayyyyyyyyyyyyyyy");
 			misesion.setAttribute("acceso","denegado");
-			misesion.setMaxInactiveInterval(10);// 10 segundos
-			RequestDispatcher rd = getServletContext().getRequestDispatcher("/iniciar");
+			System.out.println("carayyyyyyyyyyyyyyy");
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/iniciar.jsp");
 			rd.forward(req, resp);
+			System.out.println("carayyyyyyyyyyyyyyy");
+			
 		}	
+		else{
+			System.out.println(":p");
+			misesion.setAttribute("acceso","denegado");
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/iniciar.jsp");
+			rd.forward(req, resp);	
+		}
 		
 	}
 	
@@ -105,4 +120,7 @@ if(misesion.getAttribute("acceso").equals("permitido")){
 		}
 	}
 }
+
+
+
 

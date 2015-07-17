@@ -22,6 +22,43 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<url-pattern>/registrar</url-pattern>
 	</servlet-mapping>
 	
+		<servlet>
+		<servlet-name>Mandar</servlet-name>
+		<servlet-class>cerdo.unsa.Mandar</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Mandar</servlet-name>
+		<url-pattern>/mandar</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>Cambiar</servlet-name>
+		<servlet-class>cerdo.unsa.Cambiar</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Cambiar</servlet-name>
+		<url-pattern>/cambiar</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Contrasena</servlet-name>
+		<servlet-class>cerdo.unsa.Contrasena</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Contrasena</servlet-name>
+		<url-pattern>/contrasena</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Reclamo</servlet-name>
+		<servlet-class>cerdo.unsa.Reclamo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Reclamo</servlet-name>
+		<url-pattern>/reclamo</url-pattern>
+	</servlet-mapping>
+	
 	<servlet>
 		<servlet-name>Actualizar</servlet-name>
 		<servlet-class>cerdo.unsa.Actualizar</servlet-class>

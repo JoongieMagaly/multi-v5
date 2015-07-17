@@ -43,6 +43,7 @@
           
           <a href="/permisoe">Ver Pedidos</a><br>
         <a href="/permisod">Ver Delivery</a><br>
+        <a href="/cambiar">Cambiar mi Contraseña</a><br>
         
    
       </ul>
