@@ -36,7 +36,7 @@
           </ul>
         </li>
         <li><a href="/pedidos">Pedidos</a></li>
-        <li><a href="/deliverys">Delivery</a></li>
+        <li><a href="/deliverys">Visitas</a></li>
         <li class="last"><a href="/contactanos">Contáctanos</a></li>
         <li class="last"><a href="/trabajo">Trabaja con Nosotros</a></li>
           <li class="last"><a href="/cerrar">cerrar Sesion</a><br></li>

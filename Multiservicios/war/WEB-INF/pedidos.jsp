@@ -111,8 +111,9 @@ function delivery(){
           </ul>
         </li>
         <li class="active"><a href="/pedidos">Pedidos</a></li>
-        <li><a href="/deliverys">Delivery</a></li>
+        <li><a href="/deliverys">Visitas</a></li>
         <li class="last"><a href="/contactanos">Contáctanos</a></li>
+        <li class="last"><a href="/trabajo">Contáctanos</a></li>
       </ul>
     </div>
     <div id="search">

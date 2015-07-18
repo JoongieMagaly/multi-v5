@@ -1,6 +1,7 @@
 package cerdo.unsa;
 
 import javax.jdo.annotations.IdentityType;
+
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;

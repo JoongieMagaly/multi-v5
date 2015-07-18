@@ -1,5 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    <%@page import="cerdo.unsa.*"%>
+<%@page import="javax.servlet.http.*"%>
+<%@page import="javax.jdo.Query"%>
+<%@page import="javax.jdo.PersistenceManager"%>
+<%@page import="java.util.*"%>
+<%
+PersistenceManager pm = PMF.get().getPersistenceManager();
+Query q = pm.newQuery(Visitas.class);
+Visitas vistas=null;
+List<Visitas> visitas = (List<Visitas>) q.execute();
+if(visitas.isEmpty()){
+	vistas = new Visitas();
+	pm.makePersistent(vistas);
+}else{
+	vistas= visitas.get(0);
+}
+%>
+    
+    
 <!DOCTYPE HTML>
 <!-- The HTML 4.01 Transitional DOCTYPE declaration-->
 <!-- above set at the top of the file will set     -->
@@ -12,7 +32,58 @@
 <head>
 <title>Multiservicios la #1</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
 <link rel="stylesheet" href="estilo1.css" type="text/css" />
+
+<style type="text/css">
+<!--
+.table {
+	font:16px Verdana, Arial, Helvetica, sans-serif;
+	color:#777;
+	padding:7px;
+	
+}
+.barrasv {
+	width:30px;
+	text-shadow:#CCC 0.1em 0.1em 0.1em;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	box-shadow:1px 1px 1px black;
+	-webkit-box-shadow:1px 1px 1px black;
+	-moz-box-shadow:1px 1px 1px black
+}
+.rotar{
+	height:95px;
+	-webkit-transform:rotate(-90deg);
+	-moz-transform:rotate(-90deg);
+	margin:0 auto;
+}
+#tablaPer{
+	position:absolute;
+	font:19px Verdana, Arial, Helvetica, sans-serif;
+	color:#3B3838;
+	width:120px;
+	float:left;
+	BACKGROUND-COLOR:gray;
+	border-radius:5px;
+	margin-top:10px;
+	margin-left:10px;
+}
+#tablaPer .cabe{
+	width:50px;
+	margin:2px;
+	float:left;
+	text-align:center;
+}
+#tablaPer .num{
+	width:50px;
+	float:left;
+	margin:2px;
+	text-align:center;
+}
+-->
+</style>
+
 </head>
 <body id="top">
 <div class="wrapper col1">
@@ -38,7 +109,7 @@
           </ul>
         </li>
         <li><a href="/pedidos">Pedidos</a></li>
-        <li class="active"><a href="/deliverys">Delivery</a></li>
+        <li class="active"><a href="/deliverys">Visitas</a></li>
         <li class="last"><a href="/contactanos">Contáctanos</a></li>
         <li class="last"><a href="/trabajo">Trabaja con Nosotros</a></li>
       </ul>
@@ -54,42 +125,55 @@
 <!-- ####################################################################################################### -->
 <div class="wrapper col4">
   <div id="featured_intro">
-  <br><br>
-    <form action="#" method="get">
-      <div class="text">
-      		<h3><label>Nombre/Empresa:</label></h3>
-      		<input type="text" name="nombre" tabindex="1"><br><br>
-      		<h3><label>DNI/RUC:</label></h3>
-      		<input type="text" name="dni" tabindex="2"><br><br>
-      		<h3><label>Dirección:</label></h3>
-      		<input type="text" name="direccion" tabindex="3"><br><br>
-      		<h3><label>Teléfono:</label></h3>
-      		<input type="number" name="telefono" tabindex="4"><br><br>
-      		<h3><label>Destino:</label></h3>
-      		<input type="text" name="destino" tabindex="5"><br><br>
-      		<h3><label for="fechaen">Fecha de entrega:</label></h3>
-      		<input type="text" name="fechaen" tabindex="6"><br><br>
-    	</div>
-    	<h3><label for="entrega">Tipo de entrega: Delivery</label></h3><br>
-    	<h3>*No se incluye costo de movilidad.</h3>
-    	<br><br>
-    	<center><table style="width:100%" border="1">
-      	<tr>
-    		<th><h2>Producto</h2></th>		
-    		<th><h2>Cantidad</h2></th>
-    		<th><h2>Monto</h2></th>
-  		</tr>
-  		<tr>
-    		<td><br></td>
-    		<td><br></td>		
-    		<td><br></td>
-  		</tr>
-      </table></center><br><br>
-      
-      	<input name="reset" type="reset" id="reset" tabindex="5" value="Limpiar">
-     	&nbsp;
-      	<input name="submit" type="submit" value="Confirmar">
-    </form>
+
+<div id="tablaPer">
+<%String hoy=vistas.getVisitaD();
+String numero=hoy.substring(hoy.indexOf(":")+1,hoy.length());
+%>
+	<div class="cabe">Hoy</div><div class="cabe">Total</div>
+	<div class="num"><% out.print(numero);%></div><div class="num"><%out.print(vistas.getVisitaT()); %></div>
+</div>
+<table class="table" align="center"><TD>Grafico de Visitas</TD></table>
+<table class="table" align="center" cellpadding="2" cellspacing="2" border="1">
+<%
+ArrayList<String> dias=vistas.getSeisDias();
+%>
+  <tbody align="center">
+    <tr>
+    <%
+    	if(dias!=null && dias.size()!=0)
+    	for(String d:dias){
+    		out.print("<td valign='bottom'><div class='barrasv' style='height:");
+    		out.print(d.substring(d.indexOf(":")+1,d.length())+"px;");
+    		out.print(" background-color:#BDDA4C'>&nbsp;</div></td>");
+    	}
+    %>
+    </tr>
+    <tr>
+    <%
+    if(dias!=null && dias.size()!=0)
+    	for(String d:dias){
+    		out.print("<td>");
+    		out.print(d.substring(d.indexOf(":")+1,d.length()));
+    		out.print("</td>");
+    	}
+    %>
+    </tr>
+    <tr id="etiq">
+    <%
+    	if(dias!=null && dias.size()!=0)
+    	for(String d:dias){
+
+    		out.print("<td class='rotar'>");
+    		out.print(d.substring(0,d.indexOf(":")-1));
+    		out.print("</td>");
+    	}
+    %>
+    </tr>
+  </tbody>
+</table><BR>
+
+
     <br class="clear" />
   </div>
 </div>

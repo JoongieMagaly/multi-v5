@@ -33,12 +33,12 @@
 					<li class="active"><a href="/principal">Inicio</a></li>
 					<li><a href="#">Te ofrecemos</a>
 						<ul>
-							<li><a href="carnes.jsp">Carne de cerdo</a></li>
-							<li><a href="embutidos.jsp">Embutidos</a></li>
+							<li><a href="/carnes">Carne de cerdo</a></li>
+							<li><a href="/embutidos">Embutidos</a></li>
 						</ul></li>
-					<li><a href="pedidos.jsp">Pedidos</a></li>
-					<li><a href="delivery.jsp">Delivery</a></li>
-					<li class="last"><a href="contactanos.jsp">Contáctanos</a></li>
+					<li><a href="/pedidos">Pedidos</a></li>
+					<li><a href="/deliverys">Visitas</a></li>
+					<li class="last"><a href="/contactanos">Contáctanos</a></li>
 					<li class="last"><a href="/trabajo">Trabaja con Nosotros</a></li>
 				</ul>
 			</div>

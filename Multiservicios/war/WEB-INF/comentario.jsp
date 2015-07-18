@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="cerdo.unsa.*"%>
 <%@ page import="java.util.List"%>
+<%@page import="javax.servlet.http.*"%>
+<%@page import="javax.jdo.Query"%>
+<%@page import="javax.jdo.PersistenceManager"%>
+
+	
+
 <link rel="stylesheet" href="estilo1.css" type="text/css" />
 <script> 
 // wait for the DOM to be loaded 

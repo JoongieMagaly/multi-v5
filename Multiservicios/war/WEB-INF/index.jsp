@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="java.util.*"%>
+<%@page import="cerdo.unsa.*" %>
+<%@page import="javax.servlet.http.*"%>
+<%@page import="javax.jdo.Query"%>
+<%@page import="javax.jdo.PersistenceManager"%>
+
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>

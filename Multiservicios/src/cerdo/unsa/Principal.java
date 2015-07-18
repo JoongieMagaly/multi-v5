@@ -1,6 +1,7 @@
 package cerdo.unsa;
 
 import java.io.IOException;
+
 import java.util.List;
 
 import javax.jdo.PersistenceManager;
@@ -20,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 			
 			final PersistenceManager pm = PMF.get().getPersistenceManager();
 			final Query q = pm.newQuery(Usuario.class);
+
 					
 				q.setOrdering("id asc");
 				//q.setRange(0, 10);			 
