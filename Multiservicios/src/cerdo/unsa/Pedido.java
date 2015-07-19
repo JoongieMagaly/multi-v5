@@ -12,9 +12,10 @@ import com.google.appengine.api.datastore.Key;
 @SuppressWarnings("unchecked")
 @PersistenceCapable
 public class Pedido {
+
 	@PrimaryKey
-	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
-	private Key key;
+	@Persistent(valueStrategy = IdGeneratorStrategy.SEQUENCE)
+	private Long id;
 	
 	@Persistent
 	private String nombre;
@@ -56,9 +57,11 @@ public class Pedido {
 	@Persistent
 	private String destino;
 
+	@Persistent
+	private String estado;
 
-	public Pedido(String name, long ide, String address, long phone, String date,String formEn,String hora, String destino) {
-	
+
+	public Pedido(String name, long ide, String address, long phone, String date,String formEn,String hora, String destino, String estado) {
 		nombre = name;
 		identificacion = ide;
 		direccion = address;
@@ -68,10 +71,10 @@ public class Pedido {
 		this.formEn = formEn;
 		this.hora= hora;
 		this.destino=destino;
-		
+		this.estado=estado;
 	}
-	public Pedido(String name, long ide, String address, long phone, String date, ArrayList<Carne> c, ArrayList<Embutido> emb, double pc, double pe, String formEn, String hora, String destino){
-		this( name, ide, address, phone, date, formEn, hora, destino);
+	public Pedido(String name, long ide, String address, long phone, String date, ArrayList<Carne> c, ArrayList<Embutido> emb, double pc, double pe, String formEn, String hora, String destino, String estado){
+		this(name, ide, address, phone, date, formEn, hora, destino, estado);
 		if (c != null && pc != 0.0){
 			carnes = c;
 			precioCarnes = pc;
@@ -120,10 +123,6 @@ public class Pedido {
 
 	public void setEmbutidos(ArrayList<Embutido> embutidos) {
 		this.embutidos = embutidos;
-	}
-
-	public Key getKey() {
-		return key;
 	}
 
 	public String getNombre() {
@@ -200,6 +199,22 @@ public class Pedido {
 		this.destino = destino;
 	}
 
+	
+	public String getEstado() {
+		return estado;
+	}
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+	public String getId() {
+		return Long.toString(id);
+	}
+
+	public void setId(String idPersona) {
+		Long clave =Long.parseLong(idPersona);
+		this.id = clave;
+	}
+	
 	@Override
 	public String toString() {
 		return "Pedido [nombre=" + nombre

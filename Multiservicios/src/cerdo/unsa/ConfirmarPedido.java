@@ -21,6 +21,7 @@ public class ConfirmarPedido extends HttpServlet{
 		String hora = req.getParameter("hora");
 		String destino = req.getParameter("destino");
 		
+		
 		long id = Long.parseLong(ide);
 		long telf = Long.parseLong(telefono);
 		
@@ -209,7 +210,7 @@ public class ConfirmarPedido extends HttpServlet{
 			String precio2 = req.getParameter("total2");
 			double price2 = Double.parseDouble(precio2);
 			
-			Pedido pedido = new Pedido (nomb, id, direccion, telf, fecha, carnes, embutidos, price1, price2,formEn,hora,destino);
+			Pedido pedido = new Pedido (nomb, id, direccion, telf, fecha, carnes, embutidos, price1, price2,formEn,hora,destino,"no entregado");
 			pmf.makePersistent(pedido);
 			System.out.println(pedido);
 			

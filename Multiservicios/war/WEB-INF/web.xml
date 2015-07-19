@@ -22,6 +22,33 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<url-pattern>/registrar</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>Visita</servlet-name>
+		<servlet-class>cerdo.unsa.Visita</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Visita</servlet-name>
+		<url-pattern>/visita</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Votar</servlet-name>
+		<servlet-class>cerdo.unsa.Votar</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Votar</servlet-name>
+		<url-pattern>/votar</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Inicio</servlet-name>
+		<servlet-class>cerdo.unsa.Inicio</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Inicio</servlet-name>
+		<url-pattern>/inicio</url-pattern>
+	</servlet-mapping>
+	
 		<servlet>
 		<servlet-name>Mandar</servlet-name>
 		<servlet-class>cerdo.unsa.Mandar</servlet-class>
@@ -189,15 +216,6 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	</servlet-mapping>
 	
 	<servlet>
-		<servlet-name>Deliverys</servlet-name>
-		<servlet-class>cerdo.unsa.Deliverys</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>Deliverys</servlet-name>
-		<url-pattern>/deliverys</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
 		<servlet-name>Trabajo</servlet-name>
 		<servlet-class>cerdo.unsa.Trabajo</servlet-class>
 	</servlet>
@@ -353,6 +371,6 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	
 	
 	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>inicio</welcome-file>
 	</welcome-file-list>
 </web-app>

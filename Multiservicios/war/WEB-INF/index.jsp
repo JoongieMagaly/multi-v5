@@ -42,7 +42,7 @@
 							<li><a href="/embutidos">Embutidos</a></li>
 						</ul></li>
 					<li><a href="/pedidos">Pedidos</a></li>
-					<li><a href="/deliverys">Delivery</a></li>
+					<li><a href="/visita">Delivery</a></li>
 					<li class="last"><a href="/contactanos">Contáctanos</a></li>
 					<li class="last"><a href="/trabajo">Trabaja con Nosotros</a></li>
 				</ul>
@@ -130,7 +130,7 @@
 
 								<div class="fila">
 									<div class="etiqueta">
-										<label for="comentarios">comentario: :</label>
+										<label for="comentarios">comentario: </label>
 									</div>
 									<textarea class="comentario" id="comentario" name="comentario" id="comentarios" cols="32" rows="7"></textarea>
 								</div>

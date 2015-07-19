@@ -21,15 +21,18 @@ public class Mandar extends HttpServlet {
 
 		HttpSession misesion= req.getSession();
 		String e=(String)misesion.getAttribute("codigo");
-		List<Empleado> listae = PersonaService.personasXCodigo(e);	
-String codigo=req.getParameter("mandar");
-System.out.println(codigo);
-System.out.println(e);
+
+		String codigo=req.getParameter("mandar");
+System.out.println("codigo de pedido"+codigo);
+System.out.println("codigo de person"+e);
+List<Empleado> listae = PersonaService.personasXCodigo(e);	
+System.out.println("dguhfbydn");
 List<Pedido> p = PersonaService.productoXCodigo(codigo);
 
 for(Empleado y : listae){
 	System.out.println("yaaaaaaa baka andre1");
 	for(Pedido x : p){
+		System.out.println(x.getId());
 y.setMisentregas(x);
 System.out.println("yaaaaaaa baka andre2");
 	}

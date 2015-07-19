@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
     
     <%@page import="cerdo.unsa.*"%>
 <%@page import="javax.servlet.http.*"%>
@@ -109,7 +110,7 @@ if(visitas.isEmpty()){
           </ul>
         </li>
         <li><a href="/pedidos">Pedidos</a></li>
-        <li class="active"><a href="/deliverys">Visitas</a></li>
+        <li class="active"><a href="/visita">Visitas</a></li>
         <li class="last"><a href="/contactanos">Contáctanos</a></li>
         <li class="last"><a href="/trabajo">Trabaja con Nosotros</a></li>
       </ul>
@@ -130,8 +131,8 @@ if(visitas.isEmpty()){
 <%String hoy=vistas.getVisitaD();
 String numero=hoy.substring(hoy.indexOf(":")+1,hoy.length());
 %>
-	<div class="cabe">Hoy</div><div class="cabe">Total</div>
-	<div class="num"><% out.print(numero);%></div><div class="num"><%out.print(vistas.getVisitaT()); %></div>
+	<div class="cabe">Total</div>
+	<div class="num"><%out.print(vistas.getVisitaT()-1); %></div>
 </div>
 <table class="table" align="center"><TD>Grafico de Visitas</TD></table>
 <table class="table" align="center" cellpadding="2" cellspacing="2" border="1">
@@ -172,8 +173,49 @@ ArrayList<String> dias=vistas.getSeisDias();
     </tr>
   </tbody>
 </table><BR>
+<h1>Calificanos</h1>
+<%HttpSession votar= request.getSession();%>
+
+<p> tu ip es: <%=votar.getAttribute("ip")%></p>
 
 
+<%if(votar.getAttribute("voto").equals("si")) {%>
+<p>¿Cuantas estrellas nos merecemos?</p>
+<div class="ec-stars-wrapper">
+	
+	<a href="/votar?v=1" data-value="1" title="Votar con 1 estrellas">&#9733;</a>
+	<a href="/votar?v=2" data-value="2" title="Votar con 2 estrellas">&#9733;</a>
+	<a href="/votar?v=3" data-value="3" title="Votar con 3 estrellas">&#9733;</a>
+	<a href="/votar?v=4" data-value="4" title="Votar con 4 estrellas">&#9733;</a>
+	<a href="/votar?v=5" data-value="5" title="Votar con 5 estrellas">&#9733;</a>
+
+</div>
+
+<%} %>
+<% if (votar.getAttribute("voto").equals("no")){%>
+<p>Ya has votado</p>
+<div class="ec-stars-wrapper">
+	<a href="#" data-value="1" title="Votar con 1 estrellas">&#9733;</a>
+	<a href="#" data-value="2" title="Votar con 2 estrellas">&#9733;</a>
+	<a href="#" data-value="3" title="Votar con 3 estrellas">&#9733;</a>
+	<a href="#" data-value="4" title="Votar con 4 estrellas">&#9733;</a>
+	<a href="#" data-value="5" title="Votar con 5 estrellas">&#9733;</a>
+	
+</div>
+<% }%>
+<%if (votar.getAttribute("voto").equals("ya")){%>
+<%votar.setAttribute("voto","no");%>
+<p>Gracias por tu voto</p>
+<div class="ec-stars-wrapper">
+<a href="#" data-value="1" title="Votar con 1 estrellas">&#9733;</a>
+<a href="#" data-value="2" title="Votar con 2 estrellas">&#9733;</a>
+<a href="#" data-value="3" title="Votar con 3 estrellas">&#9733;</a>
+<a href="#" data-value="4" title="Votar con 4 estrellas">&#9733;</a>
+<a href="#" data-value="5" title="Votar con 5 estrellas">&#9733;</a>
+
+</div>
+<% }%>
+<p>Total de estrellas: <%=Estrella.getA() %></p>
     <br class="clear" />
   </div>
 </div>

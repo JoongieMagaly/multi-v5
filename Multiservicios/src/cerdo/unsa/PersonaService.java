@@ -46,11 +46,38 @@ public class PersonaService {
 		}	
 		
 		@SuppressWarnings("unchecked")
+		public static boolean personaXIp(String ip){
+			boolean encontrado=false;
+			 final PersistenceManager pm = PMF.get().getPersistenceManager();
+			 String query = " select from " +
+			 Ips.class.getName() +
+			 " where numeroip== '" +
+			 ip +  "'";
+			 List<Ips> personas = (List<Ips>)pm.newQuery(query).execute();
+				for(Ips e:personas){
+					if(e.getNumeroip().equals(ip)){
+					encontrado=true;	
+			
+					}
+				}
+				return encontrado;
+			}
+		
+		@SuppressWarnings("unchecked")
+		public static void añadirIp(String ip){
+		 final PersistenceManager pm = PMF.get().getPersistenceManager();
+		Ips b=new Ips(ip);
+		pm.makePersistent(b);
+		
+		}
+		
+		
+		@SuppressWarnings("unchecked")
 		public static List<Pedido> productoXCodigo(String nombre){
 		 final PersistenceManager pm = PMF.get().getPersistenceManager();
 		 String query = " select from " +
 		Pedido.class.getName()+
-		 " where key == '" +
+		 " where codigo == '" +
 		nombre + "'";
 		 List<Pedido> personas = (List<Pedido>)pm.newQuery(query).execute();
 		 return(personas);

@@ -94,7 +94,7 @@ document.entregas.entrega.disabled0true;
 				<tr>
 				<form action="/mandar" method="get" name="entregas" id="entregas">
 				
-				    <td><input type="text" name="mandar" value="<%=pedido.getKey()%>"></td>
+				    <td><input type="text" name="mandar" value="1234"></td>
 					<td><%=pedido.getFechaEmision()%></td>
 					<td><%=pedido.getNombre()%></td>
 					<td><%=pedido.getTelefono()%></td>
@@ -111,6 +111,7 @@ document.entregas.entrega.disabled0true;
 					  }
 					%>
 					</td>
+					
 					<td>
 					
 					     <% for (Carne x: pedido.getCarnes()){%>
@@ -134,6 +135,7 @@ document.entregas.entrega.disabled0true;
 					<td><%=pedido.getDestino()%></td>
 					<td><%=pedido.getFechaRecojo()%></td>
 					<td><%=pedido.getHora()%></td>
+					<td><%=pedido.getEstado() %></td>
 					<td><input type="submit" name="entregado" id ="entregado" value="Entregado"  onclick="deshabilitar();"></td>
 				</form>
 				</tr>
