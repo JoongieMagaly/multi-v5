@@ -3,7 +3,6 @@ package cerdo.unsa;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
-
 import javax.jdo.Query;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -34,8 +33,8 @@ public class Reclamo extends HttpServlet{
 
 	       try {
 	           Message msg = new MimeMessage(session);
-	           msg.setFrom(new InternetAddress("adarajaejoong@gmail.com","Adara"));
-	           msg.addRecipient(Message.RecipientType.TO, new InternetAddress(email, nombre));
+	           msg.setFrom(new InternetAddress("brittyarely@gmail.com","Brigitte"));
+	           msg.addRecipient(Message.RecipientType.TO, new InternetAddress("brittyarely@gmail.com", nombre));
 	           msg.setSubject("prueba");
 	           msg.setText(msgBodyEmail);
 	           Transport.send(msg);
@@ -50,6 +49,3 @@ public class Reclamo extends HttpServlet{
 	       resp.getWriter().println( "SE ENVIO EL EMAIL CORRECTAMENTE.");
 	   }
 	}
-	
-
-

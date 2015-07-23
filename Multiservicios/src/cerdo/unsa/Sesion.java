@@ -56,8 +56,7 @@ public class Sesion extends HttpServlet{
 				misesion.setAttribute("codigo", req.getParameter("usuario"));
 				misesion.setAttribute("nombre",nombre);
 				misesion.setAttribute("contraseña",req.getParameter("contraseña"));
-				RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/empleado.jsp");
-				rd.forward(req, resp);		
+				resp.sendRedirect("/misEntregas");
 			}
 			else{
 				misesion.setAttribute("acceso","denegado");

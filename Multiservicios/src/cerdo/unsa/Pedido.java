@@ -2,6 +2,7 @@ package cerdo.unsa;
 
 import java.util.*;
 
+
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
@@ -9,13 +10,11 @@ import javax.jdo.annotations.PrimaryKey;
 
 import com.google.appengine.api.datastore.Key;
 
-@SuppressWarnings("unchecked")
 @PersistenceCapable
 public class Pedido {
-
 	@PrimaryKey
-	@Persistent(valueStrategy = IdGeneratorStrategy.SEQUENCE)
-	private Long id;
+	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
+	private Key key;
 	
 	@Persistent
 	private String nombre;
@@ -47,7 +46,6 @@ public class Pedido {
 	@Persistent
 	private double precioEmbutidos;
 	
-
 	@Persistent
 	private String formEn;
 	
@@ -56,12 +54,18 @@ public class Pedido {
 	
 	@Persistent
 	private String destino;
-
+	
+	@Persistent
+	private String num;
+	
+	@Persistent
+	private double precioTotal;
+	
 	@Persistent
 	private String estado;
 
-
-	public Pedido(String name, long ide, String address, long phone, String date,String formEn,String hora, String destino, String estado) {
+	public Pedido(String name, long ide, String address, long phone, String date,String formEn,String hora, String destino, String num, String estado) {
+	
 		nombre = name;
 		identificacion = ide;
 		direccion = address;
@@ -71,10 +75,11 @@ public class Pedido {
 		this.formEn = formEn;
 		this.hora= hora;
 		this.destino=destino;
+		this.num = num;
 		this.estado=estado;
 	}
-	public Pedido(String name, long ide, String address, long phone, String date, ArrayList<Carne> c, ArrayList<Embutido> emb, double pc, double pe, String formEn, String hora, String destino, String estado){
-		this(name, ide, address, phone, date, formEn, hora, destino, estado);
+	public Pedido(String name, long ide, String address, long phone, String date, ArrayList<Carne> c, ArrayList<Embutido> emb, double pc, double pe, String formEn, String hora, String destino, String num, double ptotal, String estado){
+		this( name, ide, address, phone, date, formEn, hora, destino, num, estado);
 		if (c != null && pc != 0.0){
 			carnes = c;
 			precioCarnes = pc;
@@ -83,8 +88,21 @@ public class Pedido {
 			embutidos = emb;
 			precioEmbutidos = pe;
 		}
+		precioTotal = ptotal;
 	}
 	
+	public double getPrecioTotal() {
+		return precioTotal;
+	}
+	public void setPrecioTotal(double precioTotal) {
+		this.precioTotal = precioTotal;
+	}
+	public String getNum() {
+		return num;
+	}
+	public void setNum(String num) {
+		this.num = num;
+	}
 	public String getFechaEmision() {
 		return fechaEmision;
 	}
@@ -123,6 +141,10 @@ public class Pedido {
 
 	public void setEmbutidos(ArrayList<Embutido> embutidos) {
 		this.embutidos = embutidos;
+	}
+
+	public Key getKey() {
+		return key;
 	}
 
 	public String getNombre() {
@@ -166,6 +188,7 @@ public class Pedido {
 	}
 	
 	public String fechaEm(){
+		TimeZone.setDefault(TimeZone.getTimeZone("America/Lima"));
 		Calendar fecha = new GregorianCalendar();
 		int año = fecha.get(Calendar.YEAR);
 	    int mes = fecha.get(Calendar.MONTH);
@@ -199,22 +222,12 @@ public class Pedido {
 		this.destino = destino;
 	}
 
-	
 	public String getEstado() {
 		return estado;
 	}
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	public String getId() {
-		return Long.toString(id);
-	}
-
-	public void setId(String idPersona) {
-		Long clave =Long.parseLong(idPersona);
-		this.id = clave;
-	}
-	
 	@Override
 	public String toString() {
 		return "Pedido [nombre=" + nombre
@@ -222,7 +235,10 @@ public class Pedido {
 				+ direccion + ", telefono=" + telefono + ", fechaEmision="
 				+ fechaEmision + ", fechaRecojo=" + fechaRecojo + ", carnes="
 				+ carnes + ", embutidos=" + embutidos + ", precioCarnes="
-				+ precioCarnes + ", precioEmbutidos=" + precioEmbutidos + "]";
+				+ precioCarnes + ", precioEmbutidos=" + precioEmbutidos
+				+ ", formEn=" + formEn + ", hora=" + hora + ", destino="
+				+ destino + ", num=" + num + ", precioTotal=" + precioTotal
+				+ "]";
 	}
 	
 }

@@ -1,8 +1,9 @@
 package cerdo.unsa;
 import java.io.IOException;
-
 import java.io.PrintWriter;
+
 import javax.servlet.http.HttpSession;
+
 //import java.io.PrintWriter;
 import java.util.List;
 
@@ -23,10 +24,10 @@ public class PermisoD extends HttpServlet{
 	//PrintWriter out = resp.getWriter();
 		HttpSession misesion= req.getSession();
 		
-	if(misesion.getAttribute("acceso").equals("permitido")){
-	try {
-			List<Empleado> personas = PersonaService.ListaEmpleados();
-			req.setAttribute("personas", personas);
+		if(misesion.getAttribute("acceso").equals("permitido")){
+			try {
+				List<Pedido> personas = PersonaService.ListaPedidos();
+				req.setAttribute("personas", personas);
 			
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/entregadelivery.jsp");
 			rd.forward(req, resp);

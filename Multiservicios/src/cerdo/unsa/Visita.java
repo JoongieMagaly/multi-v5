@@ -29,6 +29,7 @@ import javax.servlet.http.HttpSession;
 		 System.out.println(ip);
 		 System.out.println(host);
 		 votar.setAttribute("ip",ip);
+		 votar.setAttribute("host", host);
 		 
 			
 		try {

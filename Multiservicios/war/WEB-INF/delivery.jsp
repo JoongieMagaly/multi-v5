@@ -176,9 +176,6 @@ ArrayList<String> dias=vistas.getSeisDias();
 <h1>Calificanos</h1>
 <%HttpSession votar= request.getSession();%>
 
-<p> tu ip es: <%=votar.getAttribute("ip")%></p>
-
-
 <%if(votar.getAttribute("voto").equals("si")) {%>
 <p>¿Cuantas estrellas nos merecemos?</p>
 <div class="ec-stars-wrapper">

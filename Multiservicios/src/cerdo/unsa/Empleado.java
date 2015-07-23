@@ -29,7 +29,7 @@ public class Empleado {
 	private String acceso;
 	
 	@Persistent
-	private ArrayList<Pedido> misentregas;
+	private ArrayList<String> misentregas;
 	
 	public Empleado(String name, String lastname, String codicoe,String contraseña,String acceso) {
 		
@@ -37,14 +37,15 @@ public class Empleado {
 		this.lastname = lastname;
 		this.codicoe = codicoe;
 		this.contraseña = contraseña;	
-		this.acceso = acceso;	
+		this.acceso = acceso;
+		misentregas=new ArrayList<String>();
 	}
 
-	public ArrayList<Pedido> getMisentregas() {
+	public ArrayList<String> getMisentregas() {
 		return misentregas;
 	}
 
-	public void setMisentregas(Pedido p) {
+	public void setMisentregas(String p) {
 		misentregas.add(p);
 	}
 

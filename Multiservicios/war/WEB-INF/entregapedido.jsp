@@ -10,12 +10,6 @@
 <title>Multiservicios la #1</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" href="estilo1.css" type="text/css" />
-<script>
-function deshabilitar(){
-document.entregas.entrega.disabled0true;
-}
-</script>
-
 </head>
 <body id="top">
 	<div class="wrapper col1">
@@ -45,16 +39,14 @@ document.entregas.entrega.disabled0true;
 							<li><a href="/embutidos">Embutidos</a></li>
 						</ul></li>
 					<li><a href="/pedidos">Pedidos</a></li>
-					<li><a href="/deliverys">Delivery</a></li>
-					<li class="last"><a href="/contactanos">ContÃ¡ctanos</a></li>
+					<li><a href="/visita">Visitas</a></li>
+					<li class="last"><a href="/contactanos">Contáctanos</a></li>
 					<li class="last"><a href="/trabajo">Trabaja con Nosotros</a></li>
 					<li class="last"><a href="/cerrar">cerrar Sesion</a><br></li>
 
 					<a href="/sesion">Ver Empleados</a>
 					<br>
 					<a href="/permisoe">Ver Pedidos</a>
-					<br>
-					<a href="/permisod">Ver Delivery</a>
 					<br>
 					<a href="/guardarCurric">Ver Curriculum</a>
 					<br>
@@ -81,6 +73,7 @@ document.entregas.entrega.disabled0true;
 					<th>PRODUCTO</th>
 					<th>CANTIDAD</th>
 					<th>MONTO</th>
+					<th>MONTO TOTAL</th>
 					<th>FORMA DE ENTREGA</th>
 					<th>DESTINO</th>
 					<th>FECHA</th>
@@ -90,11 +83,10 @@ document.entregas.entrega.disabled0true;
 				<%
 					for (Pedido pedido: (List<Pedido>) request.getAttribute("personas")) {
 				%>
-				
 				<tr>
-				<form action="/mandar" method="get" name="entregas" id="entregas">
-				
-				    <td><input type="text" name="mandar" value="1234"></td>
+				<form action="/mandar" method="get">
+				    <td>Boleta Nº<input type="text" name="c" value="<%=pedido.getNum()%>">
+				    </td>
 					<td><%=pedido.getFechaEmision()%></td>
 					<td><%=pedido.getNombre()%></td>
 					<td><%=pedido.getTelefono()%></td>
@@ -111,7 +103,6 @@ document.entregas.entrega.disabled0true;
 					  }
 					%>
 					</td>
-					
 					<td>
 					
 					     <% for (Carne x: pedido.getCarnes()){%>
@@ -131,15 +122,14 @@ document.entregas.entrega.disabled0true;
 					
 				         <p><%=pedido.getPrecioEmbutidos()%></p>
 					</td>
+					<td><%=pedido.getPrecioTotal()%></td>
 					<td><%=pedido.getFormEn()%></td>
 					<td><%=pedido.getDestino()%></td>
 					<td><%=pedido.getFechaRecojo()%></td>
 					<td><%=pedido.getHora()%></td>
-					<td><%=pedido.getEstado() %></td>
-					<td><input type="submit" name="entregado" id ="entregado" value="Entregado"  onclick="deshabilitar();"></td>
+					<td><input type="text" name="estado" value="<%=pedido.getEstado() %>"></td>
 				</form>
 				</tr>
-				
 				<%
 					}
 				%>

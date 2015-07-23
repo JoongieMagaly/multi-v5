@@ -17,6 +17,15 @@
 <title>Multiservicios la #1</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" href="estilo1.css" type="text/css" />
+<link rel="stylesheet" href="calendario_dw/calendario_dw-estilos.css" type="text/css">
+<script type="text/javascript" src="calendario_dw/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="calendario_dw/calendario_dw.js"></script>
+	
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".campofecha").calendarioDW();
+	})
+</script>
 <script>
 function calcular(c){
 	var p = document.getElementById('peso'+c).value;
@@ -69,22 +78,38 @@ function sumar2(d, c){
 }
 
 </script>
-
 <script>
 function personal(){
-	
-	  document.getElementById("cambio").innerHTML="<input type='hidden' name='entre' id='entre' value='Entrega Personal'><input type='hidden' name='destino' tabindex='5'><br><h3><label for='fechare'>Fecha de recojo:(aaaa-mm-dd)</label></h3><input type='date' name='fechare' tabindex='5'>"
-	  +"<br><br><h3><label for='hora'>Hora de recojo:</label></h3><input type='number' name='hora' tabindex='5'>";
+	  document.getElementById("cambio").innerHTML="<input type='hidden' name='entre' id='entre' value='Entrega Personal'><input type='hidden' name='destino' tabindex='5'><br><h3><label for='fechare'>Fecha de recojo:(aaaa-mm-dd)</label></h3><input type='text' name='fechare' class='campofecha' tabindex='5'>"
+	  +"<br><br><h3><label for='hora'>Hora de recojo:</label></h3><input type='text' name='hora' tabindex='5'>";
 }
 </script>
 <script>
 function delivery(){
-	  document.getElementById("cambio").innerHTML="<input type='hidden' name='entre' id='entre' value='Delivery'><h3><label>Destino:</label></h3><input type='text' name='destino' tabindex='5'><br><br><h3><label for='fechare'>Fecha de Entrega:(aaaa-mm-dd)</label></h3><input type='date' name='fechare' tabindex='5'>"
-		  +"<br><br><h3><label for='hora'>Hora de Entrega:</label></h3><input type='number' name='hora' tabindex='5'><br><p>*El costo del delivery sera cobrado deacuerdo al lugar de destino en la entrega</p>";
-	  
+	  document.getElementById("cambio").innerHTML="<input type='hidden' name='entre' id='entre' value='Delivery'><h3><label>Destino:</label></h3><input type='text' name='destino' size='35' tabindex='5'><br><br><h3><label for='fechare'>Fecha de Entrega:(aaaa-mm-dd)</label></h3><input type='text' name='fechare' class='campofecha' tabindex='5'>"
+		  +"<br><br><h3><label for='hora'>Hora de Entrega:</label></h3><input type='text' name='hora' tabindex='5'><br><p>*El costo del delivery sera cobrado deacuerdo al lugar de destino en la entrega</p>";
 }
 </script>
-
+<script type="text/javascript">
+ 			function numero(e) { // 1
+	    		tecla = (document.all) ? e.keyCode : e.which; // 2
+	    		if (tecla==8) return true; // 3
+	    		patron = /[0-9\s]/; // 4
+	    		te = String.fromCharCode(tecla); // 5
+	    		return patron.test(te); // 6
+			}
+</script>
+<script type="text/javascript">
+	function resetear(){
+		for (var i=1; i<=20; i++){
+			document.getElementById('peso'+i).value = "";
+		    document.getElementById('peso'+i).disabled = true;
+		    document.getElementById('unidad'+i).value = "--";
+		    document.getElementById('unidad'+i).disabled = true;
+		    document.getElementById('monto'+i).value = 0;
+		}
+	}
+</script>
 </head>
 <body id="top">
 <div class="wrapper col1">
@@ -111,9 +136,8 @@ function delivery(){
           </ul>
         </li>
         <li class="active"><a href="/pedidos">Pedidos</a></li>
-        <li><a href="/deliverys">Visitas</a></li>
-        <li class="last"><a href="/contactanos">Contáctanos</a></li>
-        <li class="last"><a href="/trabajo">Contáctanos</a></li>
+        <li><a href="/visita">Visitas</a></li>
+        <li class="last"><a href="/contactanos">ContÃ¡ctanos</a></li>
       </ul>
     </div>
     <div id="search">
@@ -127,25 +151,23 @@ function delivery(){
 <div class="wrapper col4">
   <div id="featured_intro">
   <br><br>
-    <form name="calcula" action="/confirmarPedido" method="post">
+    <form onreset="resetear()" name="calcula" action="/confirmarPedido" method="post">
       <div class="text">
       		<h3><label for="nombre">Nombre/Empresa:</label></h3>
-      		<input type="text" name="nombre" tabindex="1"><br><br>
+      		<input type="text" name="nombre" tabindex="1" required size="35"><br><br>
       		<h3><label for="dni">DNI/RUC:</label></h3>
-      		<input type="number" name="ide" tabindex="2"><br><br>
+      		<input type="text" name="ide" tabindex="2" value=""  pattern=".{1,11}" required onkeypress="return numero(event)"><br><br>
       		<h3><label for="direccion">Direccion:</label></h3>
-      		<input type="text" name="direccion" tabindex="3"><br><br>
+      		<input type="text" name="direccion" tabindex="3" required size="35"><br><br>
       		<h3><label for="telefono">Telefono:</label></h3>
-      		<input type="number" name="telefono" tabindex="4"><br><br>
+      		<input type="text" name="telefono" tabindex="4" value=""  pattern=".{1,9}" required onkeypress="return numero(event)"><br><br>
       		<h3><label for="entrega">Tipo de entrega: (haga click sobre el tipo de pedido que desea)</label></h3><br>
-      		
       		<input type="button" value="Entrega Personal" onclick="personal()">
       		<input type="button" value="Delivery" onclick="delivery()">
       		<div id="cambio">
       		</div>
     	</div>
     	<br><br>
-    	
     	<table style="width:80%" border="1">
       	<tr>
     		<th><h2>Producto</h2></th>		
@@ -240,7 +262,7 @@ function delivery(){
     	<tr>
     		<th rowspan="2">Costillas</th>
     		  <%c++; %>
-    		<td>Para chicharrÃ³n</td> 
+    		<td>Para chicharron</td> 
     		 <td>
     		 	<%precio = "precio"+c; 
     		 	  peso = "peso"+c;
@@ -364,7 +386,7 @@ function delivery(){
     		 <td>S/.<input type="text" id="<%=monto%>" name="<%=monto%>" value="0" disabled size="4"></td>
     	</tr>
     	<tr><%c++; %>
-    		<td>Para chicharrÃ³n</td> 
+    		<td>Para chicharron</td> 
     		 <td>
     		 	<%precio = "precio"+c; 
     		 	  peso = "peso"+c;
@@ -584,15 +606,9 @@ function delivery(){
     		<td>S/.<input type="text" id="total2" name="total2" value="0" size="5"></td>
   		</tr>
       </table><br><br>
-      	<input name="submit" type="submit" formaction="carnes.jsp" value="Carnes">
-     	&nbsp;
-     	<input name="submit" type="submit" formaction="embutidos.jsp" value="Embutidos">
-     	&nbsp; 
-      	<input name="reset" type="reset" id="reset" tabindex="5" value="Limpiar">
+      	<input name="reset" type="reset" id="reset" value="Limpiar">
      	&nbsp;
       	<input name="submit" type="submit" value="Confirmar">
-      	&nbsp;
-      	<input name="submit" type="submit"  formaction="delivery.jsp" value="Delivery">
     </form>
     <br class="clear" />
   </div>

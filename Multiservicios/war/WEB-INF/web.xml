@@ -23,6 +23,33 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>Oferta</servlet-name>
+		<servlet-class>cerdo.unsa.Oferta</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Oferta</servlet-name>
+		<url-pattern>/oferta</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>NoOferta</servlet-name>
+		<servlet-class>cerdo.unsa.NoOferta</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NoOferta</servlet-name>
+		<url-pattern>/noOferta</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>MisEntregas</servlet-name>
+		<servlet-class>cerdo.unsa.MisEntregas</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MisEntregas</servlet-name>
+		<url-pattern>/misEntregas</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>Visita</servlet-name>
 		<servlet-class>cerdo.unsa.Visita</servlet-class>
 	</servlet>
@@ -130,6 +157,25 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<servlet-mapping>
 		<servlet-name>Borrarc</servlet-name>
 		<url-pattern>/borrarc</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>Borrarp</servlet-name>
+		<servlet-class>cerdo.unsa.Borrarp</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Borrarp</servlet-name>
+		<url-pattern>/borrarp</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Borrarip</servlet-name>
+		<servlet-class>cerdo.unsa.Borrarip</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Borrarip</servlet-name>
+		<url-pattern>/borrarip</url-pattern>
 	</servlet-mapping>
 	
 	

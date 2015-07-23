@@ -42,7 +42,7 @@
           </ul>
         </li>
         <li><a href="/pedidos">Pedidos</a></li>
-        <li><a href="/deliverys">Delivery</a></li>
+        <li><a href="/visita">Delivery</a></li>
         <li class="last"><a href="/contactanos">Contáctanos</a></li>
         <li class="active"><a href="/trabajo">Trabaja con Nosotros</a></li>
       </ul>

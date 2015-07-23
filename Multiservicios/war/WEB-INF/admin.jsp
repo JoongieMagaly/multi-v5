@@ -43,7 +43,6 @@
           
           <a href="/sesion">Ver Empleados</a><br>
           <a href="/permisoe">Ver Pedidos</a><br>
-        <a href="/permisod">Ver Delivery</a><br>
         <a href="/guardarCurric">Ver Curriculum</a><br>
  
         

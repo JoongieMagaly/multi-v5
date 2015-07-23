@@ -12,6 +12,10 @@ import javax.servlet.http.*;
 @SuppressWarnings("serial")
 public class ConfirmarPedido extends HttpServlet{
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)throws IOException {
+		
+		HttpSession pedidosesion = req.getSession(true);
+		pedidosesion.setMaxInactiveInterval(600);
+		
 		String nomb = req.getParameter("nombre");
 		String ide = req.getParameter("ide");
 		String direccion = req.getParameter("direccion");
@@ -21,6 +25,14 @@ public class ConfirmarPedido extends HttpServlet{
 		String hora = req.getParameter("hora");
 		String destino = req.getParameter("destino");
 		
+		pedidosesion.setAttribute("nombre", nomb);
+		pedidosesion.setAttribute("identificacion", ide);
+		pedidosesion.setAttribute("direccion", direccion);
+		pedidosesion.setAttribute("telefono", telefono);
+		pedidosesion.setAttribute("fechare", fecha);
+		pedidosesion.setAttribute("formaEntrega", formEn);
+		pedidosesion.setAttribute("hora", hora);
+		pedidosesion.setAttribute("destino", destino);
 		
 		long id = Long.parseLong(ide);
 		long telf = Long.parseLong(telefono);
@@ -209,15 +221,44 @@ public class ConfirmarPedido extends HttpServlet{
 			}
 			String precio2 = req.getParameter("total2");
 			double price2 = Double.parseDouble(precio2);
+			double precioTotal = price1 + price2;
+			String ptl = Double.toString(precioTotal);
 			
-			Pedido pedido = new Pedido (nomb, id, direccion, telf, fecha, carnes, embutidos, price1, price2,formEn,hora,destino,"no entregado");
+			req.setAttribute("carnes", carnes);
+			req.setAttribute("embutidos", embutidos);
+			pedidosesion.setAttribute("precio1", precio1);
+			pedidosesion.setAttribute("precio2", precio2);
+			pedidosesion.setAttribute("precioTotal", ptl);
+			System.out.println(carnes);
+			System.out.println(embutidos);
+			NumeroBoleta num = null;
+			long n = 0;
+			Query q = pmf.newQuery(NumeroBoleta.class);
+			List<NumeroBoleta> numBoletas = (List<NumeroBoleta>) q.execute();
+			if(numBoletas.isEmpty()){
+				num = new NumeroBoleta();
+				n =  20150000;
+				pmf.makePersistent(num);
+			}else{
+				n = numBoletas.get(0).getContador();
+				numBoletas.get(0).setContador(1);
+			}
+			
+			String nb = Long.toString(n);
+			pedidosesion.setAttribute("numeroBoleta", nb);
+			
+			Pedido pedido = new Pedido (nomb, id, direccion, telf, fecha, carnes, embutidos, price1, price2,formEn,hora,destino,nb,precioTotal,"No Entregado");
 			pmf.makePersistent(pedido);
 			System.out.println(pedido);
 			
-			
-			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/boleta.jsp");
-			rd.forward(req, resp);
-			
+			if(precioTotal>=200){
+				RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/oferta.jsp");
+				rd.forward(req, resp);
+			}
+			else{
+				RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/boleta.jsp");
+				rd.forward(req, resp);
+			}
 			
 		}catch (Exception e){
 			System.out.println(e.getMessage());
@@ -228,4 +269,5 @@ public class ConfirmarPedido extends HttpServlet{
 	}
 
 }
+
 

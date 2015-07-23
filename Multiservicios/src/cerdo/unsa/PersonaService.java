@@ -77,7 +77,7 @@ public class PersonaService {
 		 final PersistenceManager pm = PMF.get().getPersistenceManager();
 		 String query = " select from " +
 		Pedido.class.getName()+
-		 " where codigo == '" +
+		 " where num == '" +
 		nombre + "'";
 		 List<Pedido> personas = (List<Pedido>)pm.newQuery(query).execute();
 		 return(personas);

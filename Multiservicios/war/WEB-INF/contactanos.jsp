@@ -38,7 +38,7 @@
           </ul>
         </li>
         <li><a href="/pedidos">Pedidos</a></li>
-        <li><a href="/deliverys">Visitas</a></li>
+        <li><a href="/visita">Visitas</a></li>
         <li class="active"><a href="/contactanos">Contáctanos</a></li>
         <li class="last"><a href="/trabajo">Trabaja con Nosotros</a></li>
       </ul>
@@ -63,6 +63,7 @@
 				Telf.: 202307 - 287431  Cel.: 979090390 - 959919192</p>
 			</td>
 			<td><img src="puesto.jpg" alt="" style="width:400px"/></td>		
+			<td><img src="celular.jpg" alt="" style="width:150px"/><br>Solo para emergencias</td>	
 		</tr>
 	</table>
     <br class="clear" />

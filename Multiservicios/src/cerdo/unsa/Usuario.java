@@ -1,7 +1,10 @@
 package cerdo.unsa;
 
-import javax.jdo.annotations.IdentityType;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.TimeZone;
 
+import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
@@ -26,14 +29,81 @@ public class Usuario{
 	@Persistent
 	private String comentario;
 	
+	@Persistent
+	private int year;
+	
+	@Persistent
+	private String month;
+	
+	@Persistent
+	private int day;
+	
+	@Persistent
+	private int hour;
+	
+	@Persistent
+	private int minute;
 
 	public Usuario(String name, String email, String comentario) {
 		super();
 		this.name = name;
 		this.email = email;
 		this.comentario = comentario;
+		TimeZone.setDefault(TimeZone.getTimeZone("America/Lima"));
+		Calendar fecha = new GregorianCalendar();
+		year = fecha.get(Calendar.YEAR);
+	    int mes = fecha.get(Calendar.MONTH);
+	    String[] meses = {"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Setiembre","Octubre","Noviembre","Diciembre"};
+		month = "";
+		for (int i=0; i<meses.length; i++){
+			if (mes == i)
+				month = meses[i];
+		}
+	    day = fecha.get(Calendar.DAY_OF_MONTH);
+	    hour = fecha.get(Calendar.HOUR_OF_DAY);
+	    minute = fecha.get(Calendar.MINUTE);
 	}
-	
+
+	public int getYear() {
+		return year;
+	}
+
+	public void setYear(int year) {
+		this.year = year;
+	}
+
+	public String getMonth() {
+		return month;
+	}
+
+	public void setMonth(String month) {
+		this.month = month;
+	}
+
+	public int getDay() {
+		return day;
+	}
+
+	public void setDay(int day) {
+		this.day = day;
+	}
+
+	public int getHour() {
+		return hour;
+	}
+
+	public void setHour(int hour) {
+		this.hour = hour;
+	}
+
+	public int getMinute() {
+		return minute;
+	}
+
+	public void setMinute(int minute) {
+		this.minute = minute;
+	}
+
 	public String getId() {
 		return Long.toString(id);
 	}

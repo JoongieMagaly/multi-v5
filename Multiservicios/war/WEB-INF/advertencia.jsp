@@ -25,8 +25,6 @@
     <div id="topnav">
     </div>
     <div id="search">
-    	<form action="/principal">
-       <input type="submit"  value="Ir a la Pagina Principal"></form>
     </div>
     <br class="clear" />
   </div>
@@ -35,9 +33,17 @@
 <div class="wrapper col4">
   <div id="featured_intro">
     <div class="fl_left">
-
-      	<h2>ADVERTENCIA!</h2>
-    	<h2>EL ACCESO LE HA SIDO DENEGADO POR TIEMPO INDEFINIDO</h2>
+<%HttpSession misesion= request.getSession(); %>
+      	<h2>MENSAJE</h2>
+      	
+      	<%if(misesion.getAttribute("miestado").equals("Entregado")){ %>
+    	<h2>Este pedido ya fue entregado anteriormente.</h2>
+    	<%} %>
+    	
+    	<%if(misesion.getAttribute("miestado").equals("No Entregado")){ %>
+    	<h2>Enviado correctamente a mis entregas.</h2>
+    	<%} %>
+    	<meta http-equiv='Refresh' content='5;url=/permisod'>
     </div>
     <br class="clear" />
   </div>

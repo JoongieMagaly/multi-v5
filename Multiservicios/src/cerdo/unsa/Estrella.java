@@ -11,7 +11,7 @@ public class Estrella{
 	private Key key;
 	
 	@Persistent
-	private static int a=0;
+	private static int a;
 
 	public Estrella() {
 
