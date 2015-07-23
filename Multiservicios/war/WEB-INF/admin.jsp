@@ -44,6 +44,7 @@
           <a href="/sesion">Ver Empleados</a><br>
           <a href="/permisoe">Ver Pedidos</a><br>
         <a href="/guardarCurric">Ver Curriculum</a><br>
+         <a href="/controlServlet">Control</a><br>
  
         
          
@@ -63,7 +64,7 @@ Eliminar por correo codigo<br>
 </form>
 <table BORDER id="tab">
 	<tr>
-		<th>CODIGO</th> <th>NOMBRE</th> <th>APELLIDO</th><th>CONTRASEÃ‘A</th><th>ACCESO</th>
+		<th>CODIGO</th> <th>NOMBRE</th> <th>APELLIDO</th><th>CORREO</th><th>CONTRASEÑA</th><th>ACCESO</th>
 	</tr>
 <%
 for( Empleado persona : (List<Empleado>)request.getAttribute("personas") ) {
@@ -75,6 +76,7 @@ for( Empleado persona : (List<Empleado>)request.getAttribute("personas") ) {
 		<td><input name="c" type="text" value="<%=persona.getCodicoe()%>"></td>
 		<td><%= persona.getName()%></td>
 		<td><%= persona.getLastname() %></td>
+		<td><%= persona.getCorreo() %></td>
 		<td><%= persona.getContraseña() %></td>
 		<td><%= persona.getAcceso()%></td>
 		<td><select name="permiso">

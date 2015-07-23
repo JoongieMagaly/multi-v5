@@ -28,7 +28,7 @@ public class NoOferta extends HttpServlet{
 			List<Pedido> pedidos = (List<Pedido>) q.execute();
 			int index=0;
 			for (int i=0; i<pedidos.size(); i++){
-				if (pedidos.get(i).getNum().equals(num)){
+				if (pedidos.get(i).getNum().equals(n)){
 					index = i;
 					break;
 				}

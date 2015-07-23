@@ -10,7 +10,7 @@ $(document).ready(function() {
 	    target:     '#caja_ajax', 
 	    url:        '/principal', 
 	    success:    function() { 
-	        alert('Â¡gracias por comentar!'); 
+	        alert('¡gracias por comentar!'); 
 	    } 
 	}; 
 	// pass options to ajaxForm 
@@ -20,7 +20,7 @@ $(document).ready(function() {
 	    target:     '#caja_ajax', 
 	    url:        '/ajax04_1', 
 	    success:    function() { 
-	        alert('Â¡Se han eliminado Personas!'); 
+	        alert('¡Se han eliminado Personas!'); 
 	    } 
 	}; 
 	// pass options to ajaxForm
@@ -55,7 +55,7 @@ List<Usuario> usuario = (List<Usuario>) request.getAttribute("personas");
 				</ul>
 			</div>
 			<div class="footbox flickr">
-				<h2>ConÃƒÂ³cenos...</h2>
+				<h2>Conócenos...</h2>
 				<ul>
 					<li><a href="#"><img src="#" alt="" /></a></li>
 					<li><a href="#"><img src="#" alt="" /></a></li>
@@ -79,8 +79,15 @@ List<Usuario> usuario = (List<Usuario>) request.getAttribute("personas");
 									</div>
 									<div class="control">
 										<input type="text" name="name" id="name" maxlength="10"
-											required="required" placeholder="Ingrese sus nombres" />
+											 placeholder="Ingrese sus nombres" required onkeypress="return nombre(event)" />
 									</div>
+									<script>
+									function nombre(valor) {
+    var reg = /^([a-z ñáéíóú]{2,60})$/i;
+    if (reg.test(valor)) return true;
+    else return false;
+}
+									</script>				
 								</div>
 
 								<div class="etiqueta">
@@ -88,15 +95,32 @@ List<Usuario> usuario = (List<Usuario>) request.getAttribute("personas");
 								</div>
 								<div class="control">
 									<input type="text" name="email" id="email" maxlength="40"
-										required="required" placeholder="Ingrese su email" />
+										 placeholder="Ingrese su email" required onkeypress="return mail(event)"/>
 								</div>
+<script>
+function mail(m) {
+	var emailReg = /^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+	if( !emailReg.test(m) ) {
+		return false;
+	} else {
+		return true;
+	}
+}
+</script>
 
 								<div class="fila">
 									<div class="etiqueta">
-										<label for="comentarios">comentario: :</label>
+										<label for="comentarios">comentario: </label>
 									</div>
-									<textarea class="comentario" id="comentario" name="comentario" id="comentarios" cols="32" rows="7"></textarea>
+									<textarea class="comentario" id="comentario" name="comentario" id="comentarios" cols="32" rows="7" required onkeypress="return comen(event)"></textarea>
 								</div><br>
+									<script>
+									function comen(valor) {
+    var reg = /^([a-z ñáéíóú]+.*)$/i;
+    if (reg.test(valor)) return true;
+    else return false;
+}
+									</script>	
 
 								<div id="action">
 									<input type="submit" value="Comentar" />
@@ -119,7 +143,7 @@ List<Usuario> usuario = (List<Usuario>) request.getAttribute("personas");
         <ul class="commentlist">
         <%for( Usuario p : usuario ) {%>
           <li class="comment_odd">
-		    <div class="author"><span class="name"><a href="#"><%= p.getName() %></a></span> <span class="wrote">escribiÃ³:</span><br>
+		    <div class="author"><span class="name"><a href="#"><%= p.getName() %></a></span> <span class="wrote">escribió:</span><br>
            <a href=""><%=p.getMonth()%> <%=p.getDay()%>, <%=p.getYear()%> a las  <%=p.getHour()%>:<%=p.getMinute()%></a>
            <p><%= p.getComentario() %></p></div>      
           </li>

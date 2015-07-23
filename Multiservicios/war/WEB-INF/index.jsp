@@ -64,9 +64,9 @@
 				<h2>Presentación:</h2>
 				<p>Reciba un cordial y nuestra formal presentación. Nosotros
 					somos Multiservicios La #1, una empresa dedicada a la venta y
-					distribuciÃ³n de carne de cerdos y embutidos para todo tipo de
+					distribución de carne de cerdos y embutidos para todo tipo de
 					pedidos. Contamos con carnes de la mejor calidad y los embutidos
-					mÃ¡s suculentos que haya probado. Nuestro objetivo es garantizar la
+					más suculentos que haya probado. Nuestro objetivo es garantizar la
 					calidad y satisfacer las necesidades de nuestros clientes.</p>
 				<h2>Propietarios:</h2>
 				<p>Wilson Salazar, Sandra Machuca e hijos.</p>

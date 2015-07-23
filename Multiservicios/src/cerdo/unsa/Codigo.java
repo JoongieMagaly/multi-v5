@@ -37,6 +37,7 @@ int cont=(int)(Math.random()*(201500-201400+1)+201400);
 			registro.setAttribute("acceso","permitido");
 			registro.setAttribute("nombre",req.getParameter("nombre"));
 			registro.setAttribute("apellido",req.getParameter("apellido"));
+			registro.setAttribute("correo",req.getParameter("correo"));
 			
 		
 			registro.setMaxInactiveInterval(30);// 10 segundos

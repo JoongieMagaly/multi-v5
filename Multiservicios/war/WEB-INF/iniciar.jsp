@@ -34,7 +34,7 @@
           </ul>
         </li>
         <li><a href="/pedidos">Pedidos</a></li>
-        <li><a href="/visita">Delivery</a></li>
+        <li><a href="/visita">Visitas</a></li>
         <li class="last"><a href="/contactanos">Contáctanos</a></li>
         <li class="last"><a href="/trabajo">Trabaja con Nosotros</a></li>
       </ul>
@@ -69,9 +69,13 @@ if(misesion.getAttribute("acceso").equals("denegado")){
     	 	</table>
     	</div>
     </form>
+   
+    
  <form action="/codigo?acceso=nuevo" method="post">
        <input type="submit"  value="Registrar Empleado">
        </form>
+       <br><br>
+       <a href="/olvide">Olvide mi Contraseña</a>
     <br class="clear" />
   </div>
 </div>

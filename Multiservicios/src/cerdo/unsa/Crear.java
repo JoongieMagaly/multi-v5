@@ -44,7 +44,8 @@ public class Crear extends HttpServlet{
 			String nombre=(String)registro.getAttribute("nombre");
 			String apellido=(String)registro.getAttribute("apellido");
 			String codigo=(String)registro.getAttribute("codigo");
-			Empleado nuevo=new Empleado(nombre,apellido,codigo,contraseña,"permitido");
+			String correo=(String)registro.getAttribute("correo");
+			Empleado nuevo=new Empleado(nombre,apellido,codigo,contraseña,"permitido",correo);
 			PersistenceManager pm = PMF.get().getPersistenceManager();
 			try{
 				pm.makePersistent(nuevo);

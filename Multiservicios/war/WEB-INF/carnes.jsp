@@ -39,7 +39,7 @@
         </li>
         <li><a href="/pedidos">Pedidos</a></li>
         <li><a href="/visita">Visitas</a></li>
-        <li class="last"><a href="/contactanos">Contátanos</a></li>
+        <li class="last"><a href="/contactanos">Contóctanos</a></li>
         <li class="last"><a href="/trabajo">Trabaja con Nosotros</a></li>
       </ul>
     </div>
@@ -55,55 +55,54 @@
 <div class="wrapper col4">
   <div id="featured_intro">
   <br><br>
-  <!--formulario del pedido-->
   <div id="carnes">
+  <form action="/hacerPedido" method="post">
     <h2>Te ofrecemos:</h2><br><br>
       <table style="width:100%" border="1">
       	<tr>
-    		<th>Cabeza</th>		
-    		<th>Cogote</th>
-    		<th>Costillas</th>
+    		<th><h2>Cabeza</h2></th>		
+    		<th><h2>Cogote</h2></th>
+    		<th><h2>Costillas</h2></th>
   		</tr>
   		<tr>
     		<td><img id="d" src="cabeza.jpg" width="150px" alt=""/><br><br>
-    			<p>Entera<br>
-				   Picada</p><br>
+    			<input type="checkbox" name="cabeza" value="entera">Entera<br>
+				<input type="checkbox" name="cabeza" value="picada">Picada<br>
     		</td>
     		<td><img id="d" src="cogote.jpg" width="150px" alt=""/><br><br>
-    			<p>Para el adobo<br>
-				   Para el horno</p><br>
+    			<input type="checkbox" name="cogote" value="adobo">Para el adobo<br>
+				<input type="checkbox" name="cogote" value="horno">Para el horno<br>
     		</td>		
     		<td><img id="d" src="costilla.jpg" width="150px" alt=""/><br><br>
-    			<p>Para el horno<br>
-				   Para chicharrón</p><br>
+    			<input type="checkbox" name="costilla" value="chicharron">Para chicharrón<br>
+				<input type="checkbox" name="costilla" value="horno">Para el horno<br>
     		</td>
   		</tr>
       </table><br><br>
       <table style="width:100%" border="1">
       	<tr>
-    		<th>Lomo</th>		
-    		<th>Brazuelo</th>
-    		<th>Pierna</th>
+    		<th><h2>Lomo</h2></th>		
+    		<th><h2>Brazuelo</h2></th>
+    		<th><h2>Pierna</h2></th>
   		</tr>
   		<tr>
     		<td><img id="d" src="lomo.jpg" width="150px" alt=""/><br><br>
-    			<p>Chuleta<br>
-				   Para el horno</p><br>
+    			<input type="checkbox" name="lomo" value="chuleta">Chuleta<br>
+				<input type="checkbox" name="lomo" value="horno">Para el horno<br>
     		</td>
     		<td><img id="d" src="brazuelos.jpg" width="150px" alt=""/><br><br>
-    			<p>Chuleta<br>
-				   Para el adobo<br>
-				   Para el horno<br>
-				   Para chicharrón</p><br>
+    			<input type="checkbox" name="brazuelo" value="adobo">Para el adobo<br>
+				<input type="checkbox" name="brazuelo" value="horno">Para el horno<br>
+				<input type="checkbox" name="brazuelo" value="chicharron">Para chicharrón<br>
+				<input type="checkbox" name="brazuelo" value="chuleta">Chuleta<br>
     		</td>		
     		<td><img id="d" src="pierna.jpg" width="150px" alt=""/><br><br>
-    			<p>Chuleta<br>
-				   Para el horno</p><br>
+    			<input type="checkbox" name="pierna" value="chuleta">Chuleta<br>
+				<input type="checkbox" name="pierna" value="horno">Para el horno<br>
     		</td>
   		</tr>
       </table><br><br>
-      <form action="/pedidos" method="get">
-      	<input name="submit" type="submit" value="Hacer Pedido">
+      <input name="submit" type="submit" value="Hacer Pedido">
       </form>
     </div>
     <br class="clear" />

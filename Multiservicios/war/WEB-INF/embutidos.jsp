@@ -39,7 +39,7 @@
         </li>
         <li><a href="/pedidos">Pedidos</a></li>
         <li><a href="/visita">Visitas</a></li>
-        <li class="last"><a href="/contactanos">ContÃ¡ctanos</a></li>
+        <li class="last"><a href="/contactanos">Contáctanos</a></li>
         <li class="last"><a href="/trabajo">Trabaja con Nosotros</a></li>
       </ul>
     </div>
@@ -56,6 +56,7 @@
   <div id="featured_intro">
   <br><br>
   <div id="carnes">
+  <form action="/hacerPedido" method="post">
     <h2>Te ofrecemos:</h2><br>
       <table style="width:100%" border="1">
       	<tr>
@@ -66,12 +67,15 @@
   		<tr>
     		<td><img id="d" src="queso.jpg" width="150px" alt=""/><br><br>
     			<p>S/. 13.00</p><br>
+    			<input id="check" type="checkbox" name="queso" value="comprar">Comprar<br>
     		</td>
     		<td><img id="d" src="jamonada.jpg" width="150px" alt=""/><br><br>
     			<p>S/. 10.00</p><br>
+    			<input id="check" type="checkbox" name="jamonada" value="comprar">Comprar<br>
     		</td>		
     		<td><img id="d" src="mortadela.jpg" width="150px" alt=""/><br><br>
     			<p>S/. 9.00</p><br>
+    			<input id="check" type="checkbox" name="mortadela" value="comprar">Comprar<br>
     		</td>
   		</tr>
       </table><br><br>
@@ -84,16 +88,18 @@
   		<tr>
     		<td><img id="d" src="salchicha.jpg" align="middle" width="150px" alt=""/><br><br>
     			<p>S/. 17.00</p><br>
+    			<input id="check" type="checkbox" name="salchicha" value="comprar">Comprar<br>
     		</td>
     		<td><img id="d" src="chorizo.png" width="150px"><br><br>
     			<p>S/. 16.00</p><br>
+    			<input id="check" type="checkbox" name="chorizo" value="comprar">Comprar<br>
     		</td>		
     		<td><img id="d" src="manteca.jpg" width="150px"><br><br>
     			<p>S/. 5.00</p><br>
+    			<input id="check" type="checkbox" name="manteca" value="comprar">Comprar<br>
     		</td>
   		</tr>
       </table><br><br>
-       <form action="/pedidos" method="get">
       	<input name="submit" type="submit" value="Hacer Pedido" />
       </form>
     </div>

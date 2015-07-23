@@ -24,6 +24,7 @@ public class Oferta extends HttpServlet{
 		System.out.println(combo);
 		
 		if (combo.equals("na")){
+			System.out.println("Va a la boleta");
 			resp.sendRedirect("/noOferta");
 		}
 		
@@ -75,9 +76,6 @@ public class Oferta extends HttpServlet{
 				precioC = 9.50;
 				precioE = 12;
 				precio = 21.50;
-			}else{
-				RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/boleta.jsp");
-				rd.forward(req, resp);
 			}
 			
 			long n = Long.parseLong(num);
@@ -86,7 +84,7 @@ public class Oferta extends HttpServlet{
 			List<Pedido> pedidos = (List<Pedido>) q.execute();
 			int index=0;
 			for (int i=0; i<pedidos.size(); i++){
-				if (pedidos.get(i).getNum().equals(num)){
+				if (pedidos.get(i).getNum().equals(n)){
 					index = i;
 					break;
 				}
@@ -166,10 +164,14 @@ public class Oferta extends HttpServlet{
 			req.setAttribute("carnes", pedidos.get(index).getCarnes());
 			req.setAttribute("embutidos", pedidos.get(index).getEmbutidos());
 			
-			System.out.println(pedidos.get(index));
+			System.out.println("New "+pedidos.get(index).getCarnes());
+			System.out.println("New "+pedidos.get(index).getEmbutidos());
+			
+			System.out.println("Pnew"+pedidos.get(index));
 			
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/boleta.jsp");
 			rd.forward(req, resp);
+			
 		}catch (Exception e){
 			System.out.println(e.getMessage());
 		}finally{

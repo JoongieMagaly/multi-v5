@@ -41,7 +41,7 @@
         </li>
         <li><a href="/pedidos">Pedidos</a></li>
         <li><a href="/visita">Visitas</a></li>
-        <li class="last"><a href="/contactanos">Contï¿½ctanos</a></li>
+        <li class="last"><a href="/contactanos">Contáctanos</a></li>
         <li class="last"><a href="/trabajo">Trabaja con Nosotros</a></li>
       </ul>
     </div>

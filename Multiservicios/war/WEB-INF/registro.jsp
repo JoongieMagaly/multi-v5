@@ -72,6 +72,8 @@ if(registro.getAttribute("acceso").equals("denegado")){
       		<input type="text" name="nombre" tabindex="1"><br><br>
       		<h3><label>Apellido:</label></h3>
       		<input type="text" name="apellido" tabindex="2"><br><br>
+      		<h3><label>correo:</label></h3>
+      		<input type="email" name="correo" tabindex="2"><br><br>
       	</div>
     	
        		<input name="submit" type="submit"  value="Continuar">

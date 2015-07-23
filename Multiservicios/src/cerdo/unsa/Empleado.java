@@ -26,18 +26,22 @@ public class Empleado {
 	private String contraseña;
 	
 	@Persistent
+	private String correo;
+	
+	@Persistent
 	private String acceso;
 	
 	@Persistent
 	private ArrayList<String> misentregas;
 	
-	public Empleado(String name, String lastname, String codicoe,String contraseña,String acceso) {
+	public Empleado(String name, String lastname, String codicoe,String contraseña,String acceso, String correo) {
 		
 		this.name = name;
 		this.lastname = lastname;
 		this.codicoe = codicoe;
 		this.contraseña = contraseña;	
 		this.acceso = acceso;
+		this.correo=correo;
 		misentregas=new ArrayList<String>();
 	}
 
@@ -88,4 +92,13 @@ public class Empleado {
 	public void setContraseña(String contraseña) {
 		this.contraseña = contraseña;
 	}
+
+	public String getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+	
 }

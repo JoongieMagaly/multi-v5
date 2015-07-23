@@ -23,6 +23,60 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>Cambio</servlet-name>
+		<servlet-class>cerdo.unsa.Cambio</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Cambio</servlet-name>
+		<url-pattern>/cambio</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Cambioc</servlet-name>
+		<servlet-class>cerdo.unsa.Cambioc</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Cambioc</servlet-name>
+		<url-pattern>/cambioc</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Enviar</servlet-name>
+		<servlet-class>cerdo.unsa.Enviar</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Enviar</servlet-name>
+		<url-pattern>/enviar</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ControlServlet</servlet-name>
+		<servlet-class>cerdo.unsa.ControlServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ControlServlet</servlet-name>
+		<url-pattern>/controlServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Olvide</servlet-name>
+		<servlet-class>cerdo.unsa.Olvide</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Olvide</servlet-name>
+		<url-pattern>/olvide</url-pattern>
+	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>HacerPedido</servlet-name>
+		<servlet-class>cerdo.unsa.HacerPedido</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HacerPedido</servlet-name>
+		<url-pattern>/hacerPedido</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>Oferta</servlet-name>
 		<servlet-class>cerdo.unsa.Oferta</servlet-class>
 	</servlet>

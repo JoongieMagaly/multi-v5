@@ -27,7 +27,18 @@ public class Inicio extends HttpServlet{
 		}else{
 			visitas.get(0).addVisita();
 		}
+		
+		PersistenceManager pm1 = PMF.get().getPersistenceManager();
+		String ip = null; // IP del cliente
+		 
+		ip = req.getRemoteAddr();
+		Query q1 = pm.newQuery(Visitas.class);
+		Control control= new Control(ip);
+		
+			pm.makePersistent(control);
+		
 		resp.sendRedirect("/principal");
+		
 		
 	}
 	catch(Exception e){

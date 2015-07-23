@@ -77,19 +77,50 @@
  <form action="/reclamo" method="post">
           <p>
             <label for="name">Nombre:</label>
-            <input type="text" name="name" value="" size="22" />
+            <input type="text" name="name" value="" size="22" required onkeypress="return comen(event)" />
           </p><br>
+<script>
+function comen(valor) {
+    var reg = /^([a-z ñáéíóú]{2,60})$/i;
+    if (reg.test(valor)) return true;
+    else return false;
+}
+</script>
           <p>
             <label for="email">Email:</label>
-            <input type="email" name="email"value="" size="22" />
+            <input type="email" name="email"value="" size="22" required onkeypress="return mail(event)" />
           </p><br>
+          <script>
+function mail(m) {
+	var emailReg = /^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+	if( !emailReg.test(m) ) {
+		return false;
+	} else {
+		return true;
+	}
+}
+</script>
           <p>
           <label for="asunto">Asunto:</label>
-          <input type="text" name="asunto"value="" size="35" />
+          <input type="text" name="asunto"value="" size="35" required onkeypress="return nombre(event)" />
           </p>
+<script>
+   function nombre(valor) {
+    var reg = /^([a-z ñáéíóú]{2,60}.*)$/i;
+    if (reg.test(valor)) return true;
+    else return false;
+}       
+</script>       
           <p>
-            <textarea name="reclamo" cols="150" rows="10"></textarea>
+            <textarea name="reclamo" cols="150" rows="10" required onkeypress="return n(event)" ></textarea>
           </p><br>
+          <script>
+   function n(valor) {
+    var reg = /^([a-z ñáéíóú]{2,60}.*)$/i;
+    if (reg.test(valor)) return true;
+    else return false;
+}       
+</script>   
           <p>*Nos pondremos en contacto con usted a traves de su email lo mas antes posible</p>
           
           <p>

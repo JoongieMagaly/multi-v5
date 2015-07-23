@@ -43,7 +43,7 @@
     	<%if(misesion.getAttribute("miestado").equals("No Entregado")){ %>
     	<h2>Enviado correctamente a mis entregas.</h2>
     	<%} %>
-    	<meta http-equiv='Refresh' content='5;url=/permisod'>
+    	<meta http-equiv='Refresh' content='3;url=/permisod'>
     </div>
     <br class="clear" />
   </div>

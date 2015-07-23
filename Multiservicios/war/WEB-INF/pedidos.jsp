@@ -80,14 +80,12 @@ function sumar2(d, c){
 </script>
 <script>
 function personal(){
-	  document.getElementById("cambio").innerHTML="<input type='hidden' name='entre' id='entre' value='Entrega Personal'><input type='hidden' name='destino' tabindex='5'><br><h3><label for='fechare'>Fecha de recojo:(aaaa-mm-dd)</label></h3><input type='text' name='fechare' class='campofecha' tabindex='5'>"
-	  +"<br><br><h3><label for='hora'>Hora de recojo:</label></h3><input type='text' name='hora' tabindex='5'>";
+	  document.getElementById("cambio").innerHTML="<input type='hidden' name='entre' id='entre' value='Entrega Personal'><input type='hidden' name='destino' tabindex='5'><br>";
 }
 </script>
 <script>
 function delivery(){
-	  document.getElementById("cambio").innerHTML="<input type='hidden' name='entre' id='entre' value='Delivery'><h3><label>Destino:</label></h3><input type='text' name='destino' size='35' tabindex='5'><br><br><h3><label for='fechare'>Fecha de Entrega:(aaaa-mm-dd)</label></h3><input type='text' name='fechare' class='campofecha' tabindex='5'>"
-		  +"<br><br><h3><label for='hora'>Hora de Entrega:</label></h3><input type='text' name='hora' tabindex='5'><br><p>*El costo del delivery sera cobrado deacuerdo al lugar de destino en la entrega</p>";
+	  document.getElementById("cambio").innerHTML="<input type='hidden' name='entre' id='entre' value='Delivery'><h3><label>Destino:</label></h3><input type='text' name='destino' size='35' tabindex='5'><br><br><p>*El costo del delivery sera cobrado deacuerdo al lugar de destino en la entrega</p>";
 }
 </script>
 <script type="text/javascript">
@@ -137,7 +135,7 @@ function delivery(){
         </li>
         <li class="active"><a href="/pedidos">Pedidos</a></li>
         <li><a href="/visita">Visitas</a></li>
-        <li class="last"><a href="/contactanos">ContÃ¡ctanos</a></li>
+        <li class="last"><a href="/contactanos">Contáctanos</a></li>
       </ul>
     </div>
     <div id="search">
@@ -153,8 +151,15 @@ function delivery(){
   <br><br>
     <form onreset="resetear()" name="calcula" action="/confirmarPedido" method="post">
       <div class="text">
+      <script>
+      function nombre(valor) {
+    var reg = /^([a-z ñáéíóú]{2,60})$/i;
+    if (reg.test(valor)) return true;
+    else return false;
+}
+      </script>
       		<h3><label for="nombre">Nombre/Empresa:</label></h3>
-      		<input type="text" name="nombre" tabindex="1" required size="35"><br><br>
+      		<input type="text" name="nombre" tabindex="1" required size="35"required onkeypress="return nombre(event)"><br><br>
       		<h3><label for="dni">DNI/RUC:</label></h3>
       		<input type="text" name="ide" tabindex="2" value=""  pattern=".{1,11}" required onkeypress="return numero(event)"><br><br>
       		<h3><label for="direccion">Direccion:</label></h3>
@@ -166,6 +171,11 @@ function delivery(){
       		<input type="button" value="Delivery" onclick="delivery()">
       		<div id="cambio">
       		</div>
+      		<input type='hidden' name='destino' tabindex='5'><br>
+      		<h3><label for='fechare'>Fecha de recojo/entrega:(aaaa-mm-dd)</label></h3>
+      		<input type='text' name='fechare' class='campofecha' tabindex='5'><br><br>
+      		<h3><label for='hora'>Hora de recojo:</label></h3>
+      		<input type='text' name='hora' tabindex='5'>
     	</div>
     	<br><br>
     	<table style="width:80%" border="1">

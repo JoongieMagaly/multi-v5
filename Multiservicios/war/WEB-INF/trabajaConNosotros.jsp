@@ -81,12 +81,29 @@
 <form name="Empleo" id="Empleo" action="/currilulum" method="post">
 <div class="justify">
 <h3> DATOS PERSONALES </h3>
+<script>
+function nombre(valor) {
+    var reg = /^([a-z ñáéíóú]{2,60})$/i;
+    if (reg.test(valor)) return true;
+    else return false;
+}
+</script>
 Nombres:* <br>
-<input type="text" name="nombre" value=""><br><br>
+<input type="text" name="nombre" value="" required onkeypress="return nombre(event)" ><br><br>
 Apellidos:*<br>
-<input type="text" name="apellido" value=""><br><br>
+<input type="text" name="apellido" value="" required onkeypress="return nombre(event)" ><br><br>
 Correo Electrónico:* <br>
-<input type="email" name="correo" value=""><br><br>
+<input type="email" name="correo" value="" required onkeypress="return mail(event)" ><br><br>
+<script>
+function mail(m) {
+	var emailReg = /^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+	if( !emailReg.test(m) ) {
+		return false;
+	} else {
+		return true;
+	}
+}
+</script>
 Telefono:*<br>
 <select>
 	<option value="Seleccione"> Seleccione</opcion>

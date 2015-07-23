@@ -17,7 +17,7 @@
 		<div id="header">
 			<div class="fl_left">
 				<h1>
-					<a href="/principal">Ventas de Carnes y Embutidos</a>
+					<a href="index.jsp">Ventas de Carnes y Embutidos</a>
 				</h1>
 				<p>La calidad, lo selecto e higiene usted lo encuentra en La #1</p>
 			</div>
@@ -35,13 +35,13 @@
 					<li class="active"><a href="/principal">Inicio</a></li>
 					<li><a href="#">Te ofrecemos</a>
 						<ul>
-							<li><a href="/carnes">Carne de cerdo</a></li>
-							<li><a href="/embutidos">Embutidos</a></li>
+							<li><a href="carnes.jsp">Carne de cerdo</a></li>
+							<li><a href="embutidos.jsp">Embutidos</a></li>
 						</ul></li>
 					<li><a href="/pedidos">Pedidos</a></li>
-					<li><a href="/visita">Visitas</a></li>
-					<li class="last"><a href="/contactanos">ContÃ¡ctanos</a></li>
-					<li class="last"><a href="/trabajo">Trabaja con Nosotros</a></li>
+        			<li><a href="/visita">Visitas</a></li>
+        			<li class="last"><a href="/contactanos">Contáctanos</a></li>
+        			<li class="last"><a href="/trabajo">Trabaja con Nosotros</a></li>
 				</ul>
 			</div>
 
@@ -81,18 +81,19 @@
     String fechaEmision = dia+"/"+(mes+1)+"/"+año;
 	%>
 <div class="wrapper col4">
-  <div id="featured_intro">
-	  <div id="scrollTabla">
+  <div id="featured_intro"><br><br>
+  <h2>*Es importante que imprima su recibo para poder hacer la entrega del pedido</h2><br><br>
+	  <div id="scrollTabla"><br><br><br>
 			<table id="reportesTabla" align="left">
 				<tr>
 					<td class="usil" colspan="6">MULTISERVICIOS Y DISTRIBUCIONES LA #1</td>
 				</tr>
 			
 				<tr>
-					<td class="subtitle" colspan="6">COMPROBANTE DE PEDIDO NÂº <%=num%></td>
+					<td class="subtitle" colspan="6">COMPROBANTE DE PEDIDO Nº <%=num%></td>
 				</tr>
 				<tr>
-					<td class="left">Direción: </td>
+					<td class="left">DireciÃ³n: </td>
 					<td colspan="2" >Mercado San Camilo - Arequipa</td>
 					<td class="left">RUC:</td>
 					<td colspan="2">2045578674</td>
@@ -117,19 +118,11 @@
 					     <%}%></td>
 					<td class="left">Fecha: </td>
 					<td><%=fechaEmision%></td>
-					<%if (formEn.equals("Entrega Personal")){%>
-					    <td class="left">Fecha de recojo:</td>
-					<%}else{%>
-						<td class="left">Fecha de entrega:</td>
-					<%}%>
+					<td class="left">Fecha de entrega:</td>
 					<td><%=fechare%></td>
 				</tr>
 				<tr>
-					<%if (formEn.equals("Entrega Personal")){%>
-					    <td class="left">Hora de recojo:</td>
-					<%}else{%>
-						<td class="left">Hora de entrega:</td>
-					<%}%>
+					<td class="left">Hora de entrega:</td>
 					<td><%=hora%></td>
 				</tr>
 				
